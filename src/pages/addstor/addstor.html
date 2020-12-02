@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title style="color: white; ">ลืมรหัสผ่าน</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-card class="cardtest1menu" style=" display: list-item;
+border: solid 1px #fff;
+text-align: -webkit-center;
+height: 250px;
+border-radius: 21px; "> -->
+
+    <!-- </ion-card> -->
+    <div>
+
+    </div>
+    <!-- <ion-card style=" display: list-item;
+border: solid 1px #fff;
+text-align: -webkit-center;
+height: 50px;
+ ">
+  </ion-card> -->
+    <!-- <img src="https://i.pinimg.com/originals/20/d8/73/20d8733b97d44108a7c4cc40564dff71.gif" /> -->
+    <!-- <img src="https://www.keycdn.com/img/blog/semantic-ui-banner.png" /> -->
+
+
+    <div class="cssprofile">
+        <form [formGroup]="form">
+
+            <div cards>
+
+                <div class="grid-full" style="margin-top: -5px;">
+                    <ion-row>
+                        <p>ลืมรหัสผ่าน? กรุณากรอกอีเมล์ในช่องข้างล่างเพื่อเริ่มการตั้งค่ารหัสผ่านใหม่</p>
+
+                    </ion-row>
+                </div>
+
+
+
+                <ion-label>อีเมล์ </ion-label>
+                <ion-item style="border-radius: 5px; margin-top: 8px; background-color: #f4f4f4; " no-lines>
+
+
+                    <ion-input style="font-size: small; " type="email" placeholder="อีเมล์"   formControlName="u_email" [(ngModel)]="u_email" >
+                    </ion-input>
+
+                </ion-item>
+
+
+                <div>
+                    <button ion-button
+                        style=" border-radius: 5px; background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px; "
+                        (click)="resetpassword()" class="ion-button-class " shape="round " fill="solid " size="large "
+                        expand="block ">ส่งอีเมล์</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</ion-content>

@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title style="color: white; ">{{text_Profile}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <!-- <div style="    background-color: #8bc34a;
+    height: 283px;
+    margin-top: -55px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 64px;
+    border-bottom: 35px;">
+
+        <p style="color: #8bc34a;"> 5555 </p> -->
+    <!-- <img style="    height: 250px;border-radius: 13px;margin-top: 10px; "
+  src="https://stepstraining.co/wp-content/uploads/2019/11/trend-food-drink-2020-6-806x423.png" class="cssimg" /> -->
+
+    <!-- </div> -->
+    <div class="cssprofile">
+
+        <div cards *ngFor="let item of prifile_user">
+
+            <div class="grid-full" style="margin-top: 25px;">
+                <ion-row>
+
+
+
+                </ion-row>
+            </div>
+            <form [formGroup]="form" >
+
+                <ion-list>
+                    <section text-center class="profile-picture">
+                        <!-- <span class="profile-picture__icon">
+                          <ion-icon name="md-create"></ion-icon>
+                        </span> -->
+                       
+                       
+                        <img  src="https://adminshop.kwanpat.com/admin-2-gh-pages/API_shop/productimg/{{item.name_img}}" class="profile-picture__image" alt="Profile Picture"/>
+                       <p *ngIf="test_me==true" style="color:#67b907">เลือกรูปภาพเรียบร้อย</p>                   
+                     </section>
+
+                     <ion-label>{{email}} </ion-label>
+                     <ion-item style="border-radius: 5px;  background-color: #f4f4f4; " no-lines>
+ 
+                         <ion-input type="text" style="font-size: smaller;" value="{{item.u_email}}" disabled></ion-input>
+                         <!--               <ion-label no-margin *ngIf="!isUsernameValid">.errorUser</ion-label> -->
+ 
+                     </ion-item>
+
+                    <ion-label>{{name}} </ion-label>
+                    <ion-item style="border-radius: 5px;  background-color: #f4f4f4; " no-lines>
+
+                        <ion-input   type="text" style="font-size: smaller;" value="{{item.u_name}}" disabled ></ion-input>
+                        <!--               <ion-label no-margin *ngIf="!isUsernameValid">.errorUser</ion-label> -->
+
+                    </ion-item>
+                    <ion-label>{{text_phone}} </ion-label>
+                    <!-- <div  style="margin-top: 8px;"> -->
+
+                        <ion-item style="border-radius: 5px; background-color: #f4f4f4; " no-lines>
+
+                            <ion-input   type="Number" style="font-size: smaller;" value="{{item.u_tel}}" disabled> </ion-input>
+                        </ion-item>
+
+                        <!-- <ion-label>ที่อยู่ </ion-label> -->
+                        <!-- <div  style="margin-top: 8px;"> -->
+<!--     
+                            <ion-item style="border-radius: 5px; background-color: #f4f4f4; " no-lines>
+    
+                              
+                                <ion-textarea style="font-size: small; " value="{{item.u_address}}"
+                                placeholder="" rows="4" cols="50"></ion-textarea>
+    
+                            </ion-item> -->
+                    <!-- </div> -->
+
+                    <!-- <button ion-button
+                        style=" border-radius: 5px;  background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px;"
+                        class="ion-button-class" shape="round" fill="solid" size="large" expand="block"
+                        (click)="signIn()">{{btn_save}}</button> -->
+                </ion-list>
+            </form>
+        </div>
+    </div>
+</ion-content>

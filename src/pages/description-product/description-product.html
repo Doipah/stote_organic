@@ -1,0 +1,270 @@
+<ion-header class="flag">
+
+    <ion-navbar>
+        <ion-title style="color: white; ">{{ text_des}}</ion-title>
+
+        <ion-buttons end>
+<!-- 
+            <button ion-button tappable (click)="openCart()">
+
+        <ion-icon name="cart" color="light" style="font-size: 27px; margin-right: 12px; ">
+        </ion-icon>
+
+      </button> -->
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="datacart">
+
+        <div *ngFor="let items of datacart " class="bgcss" style="color: #dddddd59;">
+
+            <ion-slides style="border-bottom: inset 3px #e0e0e0;" class="fuckslide" pager="true" autoplay="5000" loop="true" speed="300" effect="slide">
+                <ion-slide class="slides">
+                    <img style="width: 795px;    height: 95%; border-radius: 15px; " src="https://adminshop.kwanpat.com/admin-2-gh-pages/test_uploads/{{items.img11}}">
+                </ion-slide>
+
+                <ion-slide class="slides">
+                    <img style="width: 795px;    height: 95%; border-radius: 15px;" src="https://adminshop.kwanpat.com/admin-2-gh-pages/test_uploads/{{items.img2}}">
+                </ion-slide>
+
+                <ion-slide class="slides">
+                    <img style="width: 795px;    height: 95%; border-radius: 15px;" src="https://adminshop.kwanpat.com/admin-2-gh-pages/test_uploads/{{items.img3}}">
+                </ion-slide>
+
+            </ion-slides>
+
+
+            <!----name product-->
+            <ion-list style="width: 100%;">
+
+                <ion-card class="cardtest1menu" style="border: solid 1px #fff; margin-top: 10px;">
+                    <ion-card-header>
+                        <!--like heart -->
+                        <div *ngIf="likepro==  false    " class="cssheart">
+                            <ion-icon name="ios-heart"style="color: #ddd;" (click)="like(items.id_product_re)"></ion-icon>
+                        </div>
+                        <div *ngIf="likepro== true " class="cssheart"> 
+                            <ion-icon name="ios-heart"  style="color: #F44336;"  (click)="like1(items.id_product_re)"></ion-icon>
+                        </div>
+
+                        <div *ngIf="cklan == false">
+                            <p style="color: #666;
+        font-weight: bold;
+        font-size: large;
+        text-align: left;">{{items.name_product}}</p>
+                        </div>
+                        <div *ngIf="cklan == true">
+                            <p style="color: #666;
+        font-weight: bold;
+        font-size: large;
+        text-align: left;">{{items.name_product_en}}</p>
+                        </div>
+                        <!-- - chech dis-->
+                        <div *ngIf="items.dis>0">
+
+                            <p *ngIf="cklan==false" style=" text-align: left; color: #ff540e;   font-size: inherit;  margin-top: 8px; ">
+                                {{ items.price_product - items.dis }} ฿ / {{items.name_cate_th}} </p>
+
+                            <p *ngIf="cklan==true" style=" text-align: left; color: #ff540e;   font-size: inherit;  margin-top: 8px; ">
+                                {{ items.price_product - items.dis }} ฿ / {{items.name_cate_en}} </p>
+                        </div>
+
+                        <div *ngIf="items.dis==0">
+                            <p style="text-align: left;    font-size: inherit;  margin-top: 8px;  color: #666;">
+                                {{items.price_product}} ฿ </p>
+
+                        </div>
+                        <div *ngIf="cklan == false">
+
+                            <p style=" color: #91d915; text-align: left; "> {{Weight}} {{ items.volume }} {{Weightg}}
+                            </p>
+                        </div>
+                        <div *ngIf="cklan == true">
+
+                            <p style=" color: #91d915; text-align: left; "> {{Weight}} {{ items.volume }} {{Weightg}}
+                            </p>
+                        </div>
+
+                        <ion-item no-lines style=" margin-top: -4px; padding: 1px;     height: 20px;">
+
+
+                            <ion-icon name="star" color="#e5e32c" style="font-size: 25px;"> </ion-icon>
+                            <ion-icon name="star" color="#e5e32c" style="font-size: 25px;"> </ion-icon>
+                            <ion-icon name="star" color="#e5e32c" style="font-size: 25px;"> </ion-icon>
+                            <ion-icon name="star" color="#e5e32c" style="font-size: 25px;"> </ion-icon>
+                        </ion-item>
+
+
+
+                        <!-- end icon  star-->
+                    </ion-card-header>
+                    <ion-card-content>
+
+                        <div *ngIf="cklan == false">
+                            <p style="color: #666;
+        font-weight: bold;
+        font-size: large;
+        text-align: left; margin-top: -20px;">รายละเอียด</p>
+                        </div>
+                        <div *ngIf="cklan == true">
+                            <p style="color: #666;
+        font-weight: bold;
+        font-size: large;
+        text-align: left; margin-top: -20px;">Details</p>
+                        </div>
+                        <!---details -->
+                        <div class="cssdetails" *ngIf="cklan == true">
+                            <details style="text-align: initial;">
+                                <summary style="    font-size: medium;color: #666;">Details more...</summary>
+                                <p style="word-break: break-all; color: #666;;">{{items.description_en}}</p>
+                            </details>
+                        </div>
+
+                        <div class="cssdetails" *ngIf="cklan == false">
+                            <details style="text-align: initial;">
+                                <summary style=" font-size: medium;color: #666;">รายละเอียด เพิ่มเติม...</summary>
+                                <p style="word-break: break-all; color: #666;;"> {{items.description}}</p>
+                            </details>
+                        </div>
+
+                    </ion-card-content>
+                </ion-card>
+
+            </ion-list>
+
+
+            <!--- total -->
+            <ion-list style="width: 100%;">
+
+                <form [formGroup]="form" style="width: 100%;">
+                    <ion-card class="cardtest3menu" style="border: solid 1px #fff; margin-top: -10px;">
+                        <ion-card-header>
+                            <div *ngIf="cklan == false">
+                                <p style="color: #666;
+          font-weight: bold;
+          font-size: large;
+          text-align: left; margin-top: -5px;">เลือกจำนวนสินค้า</p>
+                            </div>
+                            <div *ngIf="cklan == true">
+                                <p style="color: #666;
+          font-weight: bold;
+          font-size: large;
+          text-align: left; margin-top: -5px;">Select product amount</p>
+                            </div>
+
+                        </ion-card-header>
+                        <ion-card-content style="    margin-top: -20px;">
+                            <!---seledt num product-->
+                            <ion-item>
+                                <ion-label style="color: #666;    font-size: medium;">
+                                    {{text_qty}}
+                                </ion-label>
+                                <ion-select formControlName="status_c" [(ngModel)]="status_c" placeholder="0">
+                                    <ion-option *ngFor="let status of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" value="{{status}}">
+                                        {{status}}</ion-option>
+                                </ion-select>
+                            </ion-item>
+                            <!--end selete end-->
+                            <!--total numprice and product-->
+
+                            <!--end total -->
+                            <button ion-button style=" border-radius: 5px;  background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px;" class="ion-button-class" shape="round" fill="solid" size="large" expand="block" (click)="book(items.dis,items.price_product,items.id_product_re )">{{btn_addtocart}}</button>
+
+                        </ion-card-content>
+                    </ion-card>
+
+                </form>
+            </ion-list>
+        </div>
+    </div>
+
+    <div *ngIf="datacart==0">
+        <ion-slides style="border-bottom: inset 3px #e0e0e0;" class="fuckslide">
+            <ion-slide class="slides">
+                <img style="width: 795px;    height: 95%; border-radius: 15px; " src="/assets/imgs/loading2.gif">
+            </ion-slide>
+
+        </ion-slides>
+
+        <div *ngFor="let items of fakeusesr " class="bgcss" style="color: #dddddd59;">
+            <ion-list style="width: 100%; height: 150px; " class="fakeuser">
+
+                <ion-card class="cardtest1menu" style="border: solid 1px #fff; margin-top: 10px;">
+                    <ion-card-header>
+
+
+
+                        <div>
+                            <p style="color: #666;
+        font-weight: bold;
+        font-size: large;
+        text-align: left;"></p>
+                        </div>
+                        <!-- - chech dis-->
+                        <div>
+                            <p style=" text-align: left; color: #ff540e;   font-size: inherit;  margin-top: 8px; ">
+                            </p>
+                        </div>
+
+                        <div>
+                            <p style="text-align: left;    font-size: inherit;  margin-top: 8px;  color: #666;">
+                            </p>
+
+                        </div>
+
+                        <div>
+
+
+                        </div>
+                    </ion-card-header>
+                    <ion-card-content>
+
+                        <div>
+
+                        </div>
+
+                        <!---details -->
+
+                    </ion-card-content>
+                </ion-card>
+
+            </ion-list>
+
+
+            <!--- total -->
+            <ion-list style="width: 100%;" class="fakeuser">
+
+                <form [formGroup]="form" style="width: 100%;">
+                    <ion-card class="cardtest3menu" style="border: solid 1px #fff; margin-top: -10px; height: 150px; ">
+                        <ion-card-header>
+
+                            <div>
+                                <p style="color: #666;
+          font-weight: bold;
+          font-size: large;
+          text-align: left; margin-top: -5px;"></p>
+                            </div>
+
+                        </ion-card-header>
+                        <ion-card-content style="    margin-top: -20px;">
+                            <!---seledt num product-->
+
+                            <p style="color: #666;
+              font-weight: bold;
+              font-size: large;
+              text-align: left; margin-top: 20px; "></p>
+
+                        </ion-card-content>
+                    </ion-card>
+
+                </form>
+            </ion-list>
+
+        </div>
+    </div>
+    <!---end-->
+
+
+</ion-content>

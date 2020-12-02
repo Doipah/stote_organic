@@ -1,0 +1,78 @@
+{
+	"home" : {
+		"heading" 		: "Hello world",
+		"description" 	: "Oh no....Not the hello world tutorial demonstration again!",
+		"text_home" 	: "Home",
+		"text_news" 	: "News",
+		"text_Product" 	: "Product",
+		"text_Shop" 	: "Shop",
+		"text_profile"  : "Profile",
+		"text_sale"     : "Sale Product",
+		"text_new"     : " New Arrival",
+		"text_Recom"     : " Recommended",
+		"text_myProfile" 	: "My Profile",
+		"text_myPurchaese" 	: "MY Purchases",
+		"text_Setting"  : "Settings",
+		"text_Loguot"     : "Log out",
+		"text_search"     : "Search...",
+
+		"text_Profile"  : "Profile",
+		"text_fullname"     : "Full Name",
+		"text_Email"     : "Email",
+		"text_phone"  : "Mobile Phone",
+		"btn_ChahngPass"     : "Change Password",
+		"text_Shipping_address"     : "Shipping Address",
+		"text_address"     : "House number",
+		"btn_save"     : "Save",
+
+		"text_des"     : "Prodecu Detail",
+		"text_More"     : "More info",
+		"text_qty"     : "Quantity",
+		"text_netAmount"     : "Net Amount",
+		"btn_addtocart"     : "Add to Cart",
+
+		"alert_select" : "Please select quantity. ",
+		"alert_add" : "Add to Cart. ",
+		"alert_addupdate" : "Update to Cart. ",
+		"alert_logout" : "Do you want to log out? ",
+		"alert_remove" : "Do you want to remove this product? ",
+		"alert_Cancel" :"Cancel",
+		"alert_Confirm" :"Confirm",
+		"alert_OK" :"OK",
+		"alert_Success" : "Success !!",
+		"alert_Successregister" : "Success register.",
+		"alert_shoppinfcart" : "Shopping Cart",
+
+		"text_loginfrist" : "Login ",
+		"text_wellcom" : "Welcome to App North Organic Thai. ",
+		"text_password" :"Password",
+		"text_passwordcon" :"Confirm Password ",
+		"text_Forgot" :"Forgot password ?",
+		"text_registerp" :"Please register?",
+		"text_register" : "register",
+		"alert_erroremail":"Please enter your email and password.",
+		"alert_errorpass":"Incorrect email or password. ",
+		"alert_errorfield":"Please fill out all fields.",
+		"alert_errornewemail":"This email is already used. Please enter a new email.",
+		"alert_errorsamepass":"Please enter the same password.",
+		"text_lanTH":"TH",
+		"text_lanEN":"EN",
+		"text_Setting":"Setting",
+		"alert_Not_numproduct":"Not enough products",
+		"instock":"In Stock",
+		"Weight":"Weight",
+		"Weightg":"g.",
+		"Product_type":"Product type",
+		"Total_Payment":"Total Payment",
+		"select_pro_picture":"Please select profile",
+		"successful":"Successful",
+		"select_profile":"Select profile",
+		"text_price":"price"
+
+
+
+
+
+
+	}
+}

@@ -1,0 +1,87 @@
+page-history-order-detail {
+  .toast-md .toast-message {
+    background: red;
+  }
+
+  .toolbar-background.toolbar-background-md {
+    background: #8bc34a;
+    color: #8bc34a;
+  }
+
+  .toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  .back-button-icon-md {
+    margin: 0;
+    padding: 0 6px;
+    text-align: left;
+    text-align: start;
+    font-size: 2.4rem;
+    font-weight: normal;
+    color: white;
+  }
+
+  .body {
+    height: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 4vw;
+    align-items: center;
+    padding-bottom: 2vw;
+    width: 100%;
+    margin: auto;
+    // background:
+    //   linear-gradient(45deg , transparent 2vw, #f6f6f6   2vw) ,
+    //   linear-gradient(-45deg , transparent 2vw, #f6f6f6   2vw) ,
+    //   linear-gradient(45deg , transparent 1.8vw, lightgray 1.8vw) ,
+    //   linear-gradient(-45deg , transparent 1.8vw, white 1.8vw);
+    // // background-size: 1.2vw calc(100% + 1.5vw);
+    // background-size: 5.5em 100%;
+
+    background: linear-gradient(45deg, transparent 4em, #f2f2f2 4em),
+      linear-gradient(-45deg, transparent 4em, #f2f2f2 4em),
+      linear-gradient(45deg, transparent 3.5em, white 3.8em),
+      linear-gradient(-45deg, transparent 3.5em, white 3.8em);
+    background-size: 1.5em 110%;
+    border: 0.2vw solid white;
+    border-bottom: none;
+  }
+
+
+  .item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .bodydelit{
+      background-color: #f2f2f2;
+  }
+  .item-md {
+    /* padding-left: 16px; */
+    padding-right: 0;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-transform: none;
+    color: #000;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+p{
+  color: #666670;
+}
+
+  //   html {
+  //     height:100%;
+  //     background:black;
+  //     display:flex;
+  //   }
+
+}

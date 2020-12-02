@@ -1,0 +1,71 @@
+page-prompt-pay {
+    .item-md ion-avatar ion-img, .item-md ion-avatar img {
+        border-radius: 15%;
+        overflow: hidden;
+        width: 75px;
+        height: 70px;
+    }
+    .toolbar-background-md {
+        border-color: #8BC34A;
+        background: #8bc34a;
+    }
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: #ffffff;
+    }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #ffffff;
+        background-color: transparent;
+    }
+
+    button.disable-hover.button.button-ios.button-default.button-default-ios {
+        /* margin-left: 22px; */
+        margin-top: 15px;
+        width: 180px;
+    }
+    .ion-button-class {
+        --border-radius: 10px;
+        --padding-bottom: 10px;
+        --padding-top: 10px;
+        height: 55px;
+        --background: #ddd;
+        --border-radius: 50px;
+        --box-shadow: none;
+    }
+    // .alert-md .alert-sub-title {
+    //     font-size: 16px;
+    //     /* margin-top: 50px; */
+    // }
+    // .alert-md .alert-head {
+    //     text-align: left;
+    //     text-align: start;
+    //     padding: 2px 2px 2px;
+    // }
+    
+
+
+}
+.custom-alertss .alert-head {
+    text-align: left;
+    text-align: start;
+    padding: 2px 2px 2px;
+
+}
+
+.custom-alertss .alert-title {
+    font-size: 16px;
+    text-align: center;
+}
+
+.custom-alertss .alert-sub-title {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 30px;
+}
+.custom-alertss .alert-message {
+    max-height: 241px;
+    font-size: 15px;
+    margin-top: 10px;
+}

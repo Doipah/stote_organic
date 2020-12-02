@@ -1,0 +1,92 @@
+page-logined {
+    background-image: url('../assets/imgs/lo.png"');
+    a {
+        color: #8bc34a;
+    }
+    .item[no-lines],
+    .item.item[no-lines] .item-inner {
+        /* border: 0; */
+        border-bottom-color: #ffffff00 !important;
+        box-shadow: none !important;
+    }
+    .text-input-md {
+        margin: 20px 7px;
+        padding: 0;
+        width: calc(100% - 8px - 8px);
+    }
+    button.disable-hover.button.button-ios.button-default.button-default-ios {
+        /* margin-left: 22px; */
+        margin-top: 15px;
+        width: 180px;
+    }
+    .ion-button-class {
+        --border-radius: 10px;
+        --padding-bottom: 10px;
+        --padding-top: 10px;
+        height: 55px;
+        --background: #ddd;
+        --border-radius: 50px;
+        --box-shadow: none;
+    }
+    .text-input-md {
+        margin: 13px 7px;
+        padding: 0;
+        width: calc(100% - 8px - 8px);
+    }
+}
+
+.custom-alert01 .alert-title {
+    font-size: 22px;
+    text-align: center;
+}
+
+.custom-alert01 .alert-sub-title {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.custom-alert01 .alert-button-group {
+    -webkit-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 7px 90px 8px 24px;
+    // background-color: #9adc28;
+}
+
+.custom-alert01 .alert-button {
+    text-align: right;
+    text-align: end;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #8bc34a;
+    background-color: #881d1d00;
+    margin: -7px 8px 8px 6px;
+    padding: 10px;
+    width: 80px;
+    border: solid 2px;
+}
+
+.custom-alert01 .alert-button .button-inner {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: center;
+    margin-left: 0px;
+}
+
+.custom-alert01 .alert-message {
+    max-height: 240px;
+    font-size: 15px;
+    width: 90px;
+    margin-left: 67px;
+    position: absolute;
+    margin-top: 11px;
+}

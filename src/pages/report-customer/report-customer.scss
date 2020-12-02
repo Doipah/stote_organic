@@ -1,0 +1,225 @@
+page-report-customer {
+    .caret {
+        margin: 2px 13px 19px;
+        // padding: 1em;
+        border: 3px solid transparent;
+        background: linear-gradient(white, white)
+                    padding-box,
+                    repeating-linear-gradient(-45deg,
+                    #f69ec4 0, #f69ec4 12.5%,
+                    transparent 0, transparent 25%,
+                    #7eb4e2 0, #7eb4e2 37.5%,
+                    transparent 0, transparent 50%)
+                    0 / 5em 5em;
+      }
+    ion-card-content {
+        display: inline-grid;
+    }
+    .card-content-md {
+        /* padding: 13px 16px; */
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+    .ttex {
+        text-align: left;
+        margin-left: 25px;
+    }
+    .cssedit {
+        margin-top: -19px;
+        display: inline-table;
+        margin-right: 25px;
+    }
+    .grid {
+        padding: 15px;
+        margin-top: -23px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .imgincard {
+        margin: 6px 15px 5px;
+    }
+    button.disable-hover.button.button-ios.button-default.button-default-ios {
+        /* margin-left: 22px; */
+        margin-top: 15px;
+        width: 180px;
+    }
+    .ion-button-class {
+        --border-radius: 10px;
+        --padding-bottom: 10px;
+        --padding-top: 10px;
+        height: 55px;
+        --background: #ddd;
+        --border-radius: 50px;
+        --box-shadow: none;
+    }
+    .item[no-lines],
+    .item.item[no-lines] .item-inner {
+        /* border: 0; */
+        border-bottom-color: #ffffff00 !important;
+        box-shadow: none !important;
+    }
+    .toolbar-background.toolbar-background-md {
+        background: #8bc34a;
+        color: #8bc34a;
+    }
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: #ffffff;
+    }
+    .back-button-icon-md {
+        margin: 0;
+        padding: 0 6px;
+        text-align: left;
+        text-align: start;
+        font-size: 2.4rem;
+        font-weight: normal;
+        color: white;
+    }
+    .toolbar-background.toolbar-background-md {
+        background: #8bc34a;
+        color: #8bc34a;
+    }
+    .item-md ion-thumbnail ion-img,
+    .item-md ion-thumbnail img {
+        width: 96px;
+        height: 70px;
+    }
+    .item-md ion-thumbnail[item-start] {
+        margin: 8px 0px 8px 0;
+    }
+    .list-md {
+        margin: -1px 0 16px;
+        display: contents;
+    }
+    .list-md .item-block .item-inner {
+        border-bottom: 1px solid #ffffff;
+    }
+    .item-md {
+        height: auto;
+        padding-left: 0px;
+        padding-right: 0;
+        position: relative;
+        font-size: 1.6rem;
+        font-weight: normal;
+        text-transform: none;
+        color: #000;
+        background-color: #fff;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .label-ios {
+        margin: 0px 0px 0px 0;
+    }
+    .input-wrapper {
+        display: contents;
+    }
+    a#hea {
+        color: green;
+        font-weight: bold;
+        font-size: 18px;
+        margin-left: 23px;
+    }
+    ion-icon#cc1 {
+        font-size: 40px;
+        color: green;
+    }
+    .input-wrapper {
+        height: 80px;
+    }
+    ion-label.label.label-ios {
+        font-size: 14px;
+        /* margin-left: 7px; */
+    }
+    ion-label.label.label-md {
+        font-size: 14px;
+        /* margin-left: 7px; */
+    }
+    label#ee1 {
+        margin-left: 10px;
+    }
+    .card-md {
+        /* margin: 9px 0px 12px; */
+        /* padding: 3px 1px 0px; */
+        border-radius: 4px;
+        width: calc(100% - 20px);
+        font-size: 1.4rem;
+        background: #f4f4f4;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.2), 0 1px 5px 0 rgba(255, 255, 255, 0.12);
+        /* margin-left: 5px; */
+    }
+    ion-card-content {
+        display: inline-grid;
+    }
+    .card-content-md {
+        /* padding: 13px 16px; */
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+    .imgthu {
+        border-radius: 10px;
+    }
+    .item-md ion-thumbnail ion-img,
+    .item-md ion-thumbnail img {
+        width: 51px;
+        height: 50px;
+        padding: 0px 4px;
+        // background-color: white;
+    }
+    ion-img img {
+        object-fit: scale-down;
+    }
+    .item-md ion-avatar[item-left],
+    .item-md ion-thumbnail[item-left],
+    .item-md ion-avatar[item-start],
+    .item-md ion-thumbnail[item-start] {
+        margin: 8px 11px -13px 0;
+        margin-left: -8px;
+    }
+    ion-img {
+        display: inline-block;
+        min-width: 20px;
+        min-height: 20px;
+        background: #fff;
+        contain: strict;
+    }
+    .fakeuser {
+        img {
+            background-color: gray;
+            opacity: 0.5;
+            height: 1em;
+            animation: loading 2s infinite;
+            width: 150px;
+            margin: 10px;
+            width: 100px;
+        }
+        h1,
+        p {
+            background-color: gray;
+            opacity: 0.5;
+            height: 1em;
+            animation: loading 2s infinite;
+            width: 150px;
+            margin: 10px;
+        }
+        @keyframes loading {
+            to {
+                background: linear-gradient( 90deg, rgba(#666666, 0) 0, rgba(lightgrey, .8) 50%, rgba(#666666, 0) 100%);
+            }
+        }
+    }
+}

@@ -1,0 +1,150 @@
+page-policy {
+    .searchbar-md .searchbar-input {
+        padding: 6px 55px;
+        border-radius: 6px;
+        background-position: left 8px center;
+        height: auto;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 3rem;
+        color: #141414;
+        background-color: #f7f7f9;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.14), 0 1px 5px 0 rgba(255, 255, 255, 0.14);
+        box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.14), 0 1px 5px 0 rgba(255, 255, 255, 0.14);
+    }
+    .cssheart {
+        position: absolute;
+        margin-top: 155px;
+        padding-left: 59%;
+        font-size: x-large;
+    }
+    .bar-button-default-md,
+    .bar-button-clear-md-default,
+    .bar-button-md-default {
+        color: #fffefe;
+        background-color: transparent;
+    }
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: #ffffff;
+    }
+    .cssnew {
+        position: absolute;
+        margin-left: 55%;
+        margin-top: -8px;
+    }
+    .cssbadge {
+        position: absolute;
+        margin-top: 10px;
+    }
+    .cssstar {
+        position: absolute;
+        display: inline-flex;
+        margin-top: 161px;
+        margin-left: -32px;
+    }
+    .cssstar1 {
+        position: absolute;
+        display: inline-flex;
+        margin-top: 161px;
+        margin-left: -50px;
+    }
+    .imgcss {
+        overflow: hidden;
+        text-align: center;
+        width: 105px;
+        height: 80px;
+    }
+    .cardtest1menu {
+        margin: 6px;
+        border-radius: 7px;
+        width: 138px;
+        font-size: 1.4rem;
+        background: #fff;
+        padding-right: 23px;
+        padding-left: 14px;
+        -webkit-column-span: none;
+        -moz-column-span: none;
+        column-span: none;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2) 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    }
+    .imgpaddingmenu {
+        margin-left: 18px;
+        margin-right: -4px;
+    }
+    .toolbar-background.toolbar-background-md {
+        background: #8bc34a;
+        color: #8bc34a;
+    }
+    // .toolbar-background.toolbar-background-md {
+    //   background: #bdbdbd;
+    //   color: #bdbdbd;
+    // }
+    .codebar {
+        position: absolute;
+        margin-top: 7px;
+        margin-left: 9px;
+    }
+    .md [padding] .scroll-content {
+        padding: 0px;
+    }
+    .classnew {
+        position: absolute;
+        margin: 15px 85px auto;
+        font-style: italic;
+    }
+    [cards] {
+        .grid-full ion-col {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 5px 0;
+        }
+        .row {
+            padding: 0;
+        }
+        .col {
+            padding: 5px 0;
+        }
+        .card {
+            height: 205px;
+            border-radius: 7px;
+            margin: 2px 13px -2px 9px;
+            background: #f7f7f9;
+            padding: 14px;
+            -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2) 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.2), 0 3px 1px -2px rgba(255, 255, 255, 0.2), 0 1px 5px 0 rgba(255, 255, 255, 0.2);
+            border: solid 1px;
+            h1 {
+                font-weight: 400;
+                // font-size: main-font-size;
+                font-size: 3.5rem;
+            }
+            p {
+                font-weight: 100;
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .card-md {
+        margin: 10px;
+        border-radius: 0px;
+        // width: calc(98% - 20px);
+        width: calc(100% - 20px);
+        // width:150px;
+        font-size: 1.4rem;
+        background: #fff;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        height: 178px;
+    }
+    .card-header-md {
+        font-size: 1.6rem;
+        color: #222;
+        padding: 0px;
+        margin-top: 18px;
+    }
+
+}

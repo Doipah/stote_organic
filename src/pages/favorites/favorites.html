@@ -1,0 +1,34 @@
+<!--
+  Generated template for the FavoritesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="cklan == false">รายการที่ชอบ</ion-title>
+    <ion-title *ngIf="cklan == true">Favorites</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-list>
+    <ion-item *ngFor="let item of favorites">
+      <ion-avatar item-start>
+        <img src="https://adminshop.kwanpat.com/admin-2-gh-pages/test_uploads/{{item.img11}}">
+      </ion-avatar>
+      <h2 *ngIf="cklan == false" >{{item.name_product}}</h2>
+      <h2 *ngIf="cklan == true" >{{item.name_product_en}}</h2>
+ 
+      <p  *ngIf="cklan == false" >{{item.description}}</p>
+      <p  *ngIf="cklan == true" >{{item.description_en}}</p>
+      <button ion-button clear item-end> <ion-icon name="ios-heart"  style="font-size: large;color: #F44336;"  ></ion-icon></button>
+    </ion-item>
+    <!-- <p  *ngIf="favorites.length == 0" style="text-align: center;">ไม่มีรายการ </p> -->
+    <ion-item></ion-item>
+   
+  </ion-list>
+
+
+</ion-content>

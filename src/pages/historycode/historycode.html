@@ -1,0 +1,145 @@
+<!--
+  Generated template for the HistoresListcodePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-align-items-baseline">
+        <ion-col size="6">
+          <!-- <h4 class="title"> -->
+          <ion-title *ngIf="ckland ==false">{{ti_ti}}</ion-title>
+         
+          <!-- <p *ngIf="cklan==false"> สั่งซื้อวันที่
+                        {{item.Timedata  |  date: 'dd/MM/yyyy' }} </p>
+                    <p *ngIf="cklan==true"> DateTime {{item.Timedata |  date: 'dd/MM/yyyy' }} </p> -->
+          <!-- </h4> -->
+        </ion-col>
+        <ion-col size="6" style="text-align: end;">
+          <!-- <h4 class="more ion-text-end"> -->
+          <ion-icon (click)="popup_address()" style="color: white;font-size: x-large;" name="md-pin" item-end>
+          </ion-icon>
+
+          <!-- </h4> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-navbar>
+  <!-- <ion-icon name="md-alert" color="light" style="font-size: 27px; margin-right: 12px; "> -->
+        
+        
+     
+  <!-- </ion-icon> -->
+
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list>
+      <ion-item *ngIf="ckland == false" style="background-color:#f1f2f4 ;">
+        <p style="text-align: left;     color: #010101; ">รหัสสั่งซื้อ {{code_id}}</p>
+        <p style="text-align: left;     color: #010101; "> วันที่สั่งซื้อ
+          {{data | date : 'dd / MM / yyyy'}} </p>
+      </ion-item>
+      <ion-item *ngIf="ckland == true" style="background-color:#f1f2f4 ;">
+        <p style="text-align: left;     color: #010101; ">Order Code {{code_id}}</p>
+        <p style="text-align: left;     color: #010101; "> DateTime {{data | date : 'dd/MM/yyyy'}}
+        </p>
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+
+  <div *ngFor="let item of result   let i = index; ">
+    <ion-card>
+      <ion-list>
+        <!-- <ion-item *ngIf="ckland == false" style="background-color:#f1f2f4 ;">
+          <p style="text-align: left;     color: #010101; ">รหัสสั่งซื้อ {{code_id}}</p>
+          <p style="text-align: left;     color: #010101; "> วันที่สั่งซื้อ
+            {{item.user_buy_time | date : 'dd / MM / yyyy'}} </p>
+        </ion-item>
+        <ion-item *ngIf="ckland == true" style="background-color:#f1f2f4 ;">
+          <p style="text-align: left;     color: #010101; ">Order Code {{code_id}}</p>
+          <p style="text-align: left;     color: #010101; "> DateTime {{item.user_buy_time | date : 'dd/MM/yyyy'}}
+          </p>
+        </ion-item> -->
+        <!-- <div *ngFor="let value  of item.  let ii = index; "> -->
+          <ion-item style=" border-bottom: 1px solid #ddd; ">
+            <ion-badge *ngIf="item.discount_g>0"
+              style="border-radius: 10px; color: #fff; background-color: #ff6a2d; height: 18px; margin-top: -3px; font-size: x-small; position: absolute; margin-left: -105px; width: 32px;"
+              slot="end"> -{{item.discount_g}}%
+            </ion-badge>
+            <ion-thumbnail item-start>
+              <img class="imgthu" src="https://adminshop.kwanpat.com/admin-2-gh-pages/test_uploads/{{item.img11}}">
+            </ion-thumbnail>
+            <div *ngIf="ckland == false">
+              <p>{{item.name_product  }} </p>
+              <p> ราคา {{item.price_product - item.dis}} x {{item.user_count}}  </p>
+              <p style="color: #f53d3d; text-align: end;">ราคารวม {{(item.price_product - item.dis) * item.user_count }}.00 ฿</p>
+            </div>
+            <div *ngIf="ckland == true">
+              <p>{{item.name_product_en }} </p>
+              <p> price {{item.price_product - item.dis}} x {{item.user_count}}  </p>
+              <p style="color: #f53d3d ; text-align: end;">price {{(item.price_product - item.dis) * item.user_count }}.00 ฿ </p>
+            </div>
+            </ion-item>
+    
+
+      </ion-list>
+    </ion-card>
+   
+
+
+
+    <!-- </ion-item>  -->
+ 
+
+   </div>
+
+   <div  *ngFor="let item1 of result   let i = index; " >    
+    <div *ngIf=" result.length == i+1 ">
+       <ion-item *ngIf="ckland == false" style="border-bottom: 1px solid #eaeaea7a;">
+         <p style=" text-align: end;">ค่าจัดส่ง 30.00 ฿</p>
+         <p style="color: #f53d3d; text-align: end;">รวมทั้งสิ้น {{item1.total }}.00 ฿</p>
+       </ion-item>
+       <ion-item *ngIf="ckland == true" style="border-bottom: 1px solid #eaeaea7a;">
+         <p style=" text-align: end;">cost 30.00 ฿</p>
+         <p style="color: #f53d3d; text-align: end;">Total {{item1.total }}.00 ฿</p>
+       </ion-item>
+     </div> 
+   </div>
+ 
+
+
+</ion-content>
+
+<!-- <ion-footer>
+
+  <ion-toolbar >
+    <div *ngIf="ckland == false" >
+      <h6   style="text-align: center; color: #fff " (click)="choosepay(code_id)">เลือกช่องทางการชำระเงิน  </h6>
+    </div>
+    <div *ngIf="ckland == true" >
+      <h6   style="text-align: center; color: #fff " (click)="choosepay(code_id)">
+         payment method</h6>
+    </div>
+
+  </ion-toolbar>
+</ion-footer> -->
+
+ <ion-footer *ngIf="tex == 3 ">
+
+  <ion-toolbar >
+    <div *ngIf="ckland == false" >
+      <h6   style="text-align: center; color: #fff " (click)="Trackparcel()">ติดตามพัสดุ  </h6>
+    </div>
+    <div *ngIf="ckland == true" >
+      <h6   style="text-align: center; color: #fff " (click)="Trackparcel()">
+        Track parcel</h6>
+    </div>
+
+  </ion-toolbar>
+</ion-footer> 

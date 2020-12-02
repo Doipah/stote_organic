@@ -1,0 +1,36 @@
+<!--
+  Generated template for the EtrackingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title>ติดตามสินค้า</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-card style="text-align: center;">
+        <p>รหัสติดตามสินค้า </p>
+        <p>{{code_delivery}} {{name_delivery}}</p>
+
+        <ion-icon name="md-arrow-dropdown"  style="font-size: 27px; margin-right: 12px; color:#000000 ;  ">
+            <p style="color: brown; font-size: medium; border-bottom: 1px solid; " (click)="link_onclick()"> ติดตามสินค้า {{name_delivery}} </p>
+        </ion-icon>
+
+        <ion-card-content>
+            <img style="    width: 70%;" src="assets/imgs/car.gif">
+        </ion-card-content>
+        <!-- <p>รหัสติดตามสินค้า </p> -->
+        <p style="font-size: medium;  " >*ยืนยันสินค้าเมื่อได้รับสินค้าแล้ว</p>
+        <button (click)="comfrim()" ion-button
+            style=" height: 50px; border-radius: 5px;  background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px;"
+            class="ion-button-class" shape="round" fill="solid" size="large" expand="block">ยืนยันรับสินค้า</button>
+    </ion-card>
+
+
+
+</ion-content>

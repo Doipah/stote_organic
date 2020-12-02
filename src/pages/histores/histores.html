@@ -1,0 +1,350 @@
+<ion-header>
+
+    <ion-navbar hideBackButton>
+        <ion-buttons end>
+
+            <button ion-button tappable (click)="close()">
+
+                <ion-icon name="close" color="light" style="font-size: 27px; margin-right: 12px; ">
+                </ion-icon>
+
+            </button>
+        </ion-buttons>
+        <ion-title *ngIf="ckland == false" style="color: white;  ">รายการสั่งซื้อ</ion-title>
+        <ion-title *ngIf="ckland == true " style="color: white;  ">Order list</ion-title>
+    </ion-navbar>
+    <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">
+        <ion-segment class="SwipedTabs-tabs">
+            <ion-segment-button *ngFor='let tab of tabs1 ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
+                [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs1.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'
+                [ngStyle]="{'width.px': (this.tabElementWidth_px)}">
+                {{tab}}
+            </ion-segment-button>
+        </ion-segment>
+
+        <!-- here is our dynamic line  "indicator"-->
+        <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.px': (this.tabElementWidth_px)}">
+        </div>
+    </ion-content>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)"
+        (ionSlideWillChange)="updateIndicatorPosition()" (ionSlideDidChange)="updateIndicatorPosition()"
+        (pan)="updateIndicatorPosition()" [pager]="false">
+        <ion-slide>
+
+
+            <ion-scroll scrollY="true" style="height: 100%">
+                <ion-list>
+                    <div *ngFor="let item of result   let i = index; ">
+                        <!-- <div *ngIf="item[0] != 0 "> -->
+                        <!-- <ion-item>
+                        <p>{{item.name_product}} </p>
+                    </ion-item> -->
+                        <!-- <ion-card (click)="checkout(item.code,item.id_product_re,item.id_order,item.user_order)"> -->
+                        <ion-card *ngIf="item.code_id != null ">
+                            <ion-list  (click)="gotoDetail(item.code_id)"  >
+                                <ion-item style="background-color:#f1f2f4 ;">
+                                    <ion-avatar item-start>
+                                        <img src="../../assets/icon/order.svg">
+                                    </ion-avatar>
+                                    <p *ngIf="ckland == false" style="text-align: left;    color: #000;"> รหัสสั่งซื้อ
+                                        {{item.code_id}} </p>
+                                    <p *ngIf="ckland == true" style="text-align: left;    color: #000;"> Order
+                                        {{item.code_id}} </p>
+                                    <!-- <button ion-button outline item-end icon-start style="    border-color: #f1f2f4;
+                                    color: #52adb4;
+                                    font-size: small;
+                                    font-style: italic;">
+                                      
+                                  ชำระเงิน
+                                      </button> -->
+                                    <div
+                                       
+                                        style=" border-color: #f1f2f4;
+                                    color: #52adb4;
+                                    font-size: small;
+                                    font-style: italic;">
+                                        <!-- <ion-icon name="cart"></ion-icon> -->
+                                        <div *ngIf="ckland == false"> ดูรายละเอียด </div>
+                                        <div style=" text-transform: capitalize;" *ngIf="ckland == true"> Detail </div>
+                                    </div>
+                                    <button ion-button outline item-end icon-start>
+                                        <ion-icon md="ios-arrow-forward"></ion-icon>
+                                    </button>
+                                    <!-- <div *ngFor="let value of item.values let ii = index;" >
+                                      <div *ngIf="value[0] == 0 ">
+                                          
+                                        <p style="text-align: left; font-size: small; margin-left:15px;"> สั่งซื้อวันที่ {{value.user_buy_time | date : 'dd MMM yyyy'  }} </p>
+                                    </div>
+                                       
+                                    </div>  -->
+
+
+
+
+                                </ion-item>
+
+                            </ion-list>
+
+                        </ion-card>
+                        <!-- </div> -->
+                        <!-- 
+                        <div *ngFor="let value of item.values let ii = index;">
+                            <div *ngIf="value != 0 ">
+
+                                <ion-item style=" border-bottom: 0px solid #ffffff; ">
+
+                                    <ion-badge *ngIf="value.discount_g>0" style="border-radius: 10px; color: #fff; background-color: #ff6a2d; height: 18px; margin-top: -3px; font-size: x-small; position: absolute; margin-left: -105px; width: 32px;" slot="end"> -{{value.discount_g}}%
+                                    </ion-badge>
+
+                                    <ion-thumbnail item-start>
+                                        <img class="imgthu" src="https://adminshop.kwanpat.com/admin-2-gh-pages/test_uploads/{{value.img11}}">
+                                    </ion-thumbnail>
+
+                               
+                                    <p>{{value.name_product}} </p>
+                                  
+                                    <p> จำนวน x {{value.user_count}} </p>
+
+
+                                   
+
+
+
+                                    <p style="color: #f53d3d;">ราคา {{value.price_product - value.dis}}.00 ฿</p>
+
+
+                                </ion-item>
+                                <div *ngIf=" item.values.length == ii+1 ">
+                                    <ion-item style="border-bottom: 1px solid #eaeaea7a;">
+                                
+                                        <p style="color: #f53d3d; text-align: end;">รวมทั้งสิน {{value.total }}.00 ฿</p>
+
+
+
+
+                                    </ion-item>
+                                    <ion-item style="border-bottom: 9px solid #f1f2f4;">
+                                        <p style="text-align: left;"> สั่งซื้อวันที่ {{value.user_buy_time | date: 'dd-MMMM-yyyy' }} </p>
+
+                                        <button (click)="checkout(value.code,value.id_product_re,value.id_order,value.user_order,value.total)" ion-button outline item-end icon-start style="border-radius: 3px;">
+                                            <ion-icon name="cart"></ion-icon>
+                                          ชำระเงิน
+                                          </button>
+                                    </ion-item>
+
+                                </div>
+                            </div>
+                        </div> -->
+                        <div *ngIf=" L == 1">
+                            <img src="../../assets/imgs/empty.gif" style="width: 180px; height: 180px;">
+                            <p>ไม่มีรายการสั่งซื้อ</p>
+                        </div>
+                    </div>
+                </ion-list>
+
+            </ion-scroll>
+        </ion-slide>
+
+
+
+
+        <ion-slide>
+            <ion-scroll scrollY="true" style="height: 100%">
+                <ion-list>
+                    <div *ngFor="let itemck of resultck let ii = index; ">
+                        <!-- <div *ngIf="item[0] != 0 "> -->
+                        <!-- <ion-item>
+                        <p>{{item.name_product}} </p>
+                    </ion-item> -->
+                        <!-- <ion-card (click)="checkout(item.code,item.id_product_re,item.id_order,item.user_order)"> -->
+                        <ion-card *ngIf="itemck.code_id != null ">
+                            <ion-list  (click)="gotoDetail1(itemck.code_id,1)" >
+                                <ion-item style="background-color:#f1f2f4 ;">
+                                    <ion-avatar item-start>
+                                        <img src="../../assets/icon/waiting.svg">
+                                    </ion-avatar>
+                                    <p *ngIf="ckland == false" style="text-align: left; color: #000;">{{ii}}.
+                                        รหัสสั่งซื้อ {{itemck.code_id}} </p>
+                                    <p *ngIf="ckland == true" style="text-align: left; color: #000;">{{ii}}. Order
+                                        {{itemck.code_id}} </p>
+                                    <!-- <p style="text-align: left;"> {{ii}}. รหัสสั่งซื้อ {{item.code_id}} </p> -->
+                                    <div style=" border-color: #f1f2f4;
+                                    color: #F44336;
+                                    font-size: small;
+                                    font-style: italic;">
+
+                                        <div *ngIf="ckland == false">กำลังตรวจสอบ </div>
+                                        <div style=" text-transform: capitalize;" *ngIf="ckland == true">
+                                            Checking </div>
+
+                                    </div>
+                                    <button ion-button outline item-end icon-start>
+                                        <ion-icon md="ios-arrow-forward"></ion-icon>
+                                    </button>
+                                </ion-item>
+                            </ion-list>
+                        </ion-card>
+
+                        <div *ngIf=" LL == 1">
+                            <img src="../../assets/imgs/empty.gif" style="width: 180px; height: 180px;">
+                            <p>ไม่มีรายการสั่งซื้อ</p>
+                        </div>
+                    </div>
+                </ion-list>
+
+            </ion-scroll>
+        </ion-slide>
+
+
+
+        <ion-slide>
+            <ion-scroll scrollY="true" style="height: 100%">
+                <ion-list>
+                    <div *ngFor="let item of result1 let iii = index; ">
+                        <!-- <div *ngIf="item[0] != 0 "> -->
+                        <!-- <ion-item>
+                        <p>{{item.name_product}} </p>
+                    </ion-item> -->
+                        <!-- <ion-card (click)="checkout(item.code,item.id_product_re,item.id_order,item.user_order)"> -->
+                        <ion-card *ngIf="item.code_id != null ">
+                            <ion-list (click)="gotoDetail1(item.code_id,2)" >
+                                <ion-item style="background-color:#f1f2f4 ;">
+                                    <ion-avatar item-start>
+                                        <img  src="../../assets/icon/order1.svg">
+                                    </ion-avatar>
+                                    <p *ngIf="ckland == false" style="text-align: left; color: #000;">{{iii}}.
+                                        รหัสสั่งซื้อ {{item.code_id}} </p>
+                                    <p *ngIf="ckland == true" style="text-align: left; color: #000;">{{iii}}. Order
+                                        {{item.code_id}} </p>
+                                    <!-- <p style="text-align: left;"> {{ii}}. รหัสสั่งซื้อ {{item.code_id}} </p> -->
+                                    <!-- <button ion-button outline item-end icon-start style="    border-color: #f1f2f4;
+                                    color: #52adb4;
+                                    font-size: small;
+                                    font-style: italic;">
+
+                                        <div *ngIf="ckland == false"> ชำระเงินแล้ว </div>
+                                        <div style=" text-transform: capitalize;" *ngIf="ckland == true"> Paid </div>
+
+                                    </button> -->
+                                    <div style="    border-color: #f1f2f4;
+                                    color: #52adb4;
+                                    font-size: small;
+                                    font-style: italic;">
+
+                                        <div *ngIf="ckland == false"> ชำระเงินแล้ว </div>
+                                        <div style=" text-transform: capitalize;" *ngIf="ckland == true"> Paid </div>
+
+                                    </div>
+                                    <button ion-button outline item-end icon-start>
+                                        <ion-icon md="ios-arrow-forward"></ion-icon>
+                                    </button>
+                                </ion-item>
+                            </ion-list>
+                        </ion-card>
+                        <div *ngIf=" LLL == 1">
+                            <img src="../../assets/imgs/empty.gif" style="width: 180px; height: 180px;">
+                            <p>ไม่มีรายการสั่งซื้อ</p>
+                        </div>
+
+                    </div>
+                </ion-list>
+
+            </ion-scroll>
+        </ion-slide>
+        <ion-slide>
+            <ion-scroll scrollY="true" style="height: 100%">
+                <ion-list>
+                    <div *ngFor="let item of result2 let iiii = index;">
+                        <ion-card *ngIf="item.code_id != null ">
+                            <ion-list (click)="gotoDetail1(item.code_id,3)" >
+                                <ion-item style="background-color:#f1f2f4 ;" >
+                                    <ion-avatar item-start>
+                                        <img src="../../assets/icon/box.svg">
+                                    </ion-avatar>
+
+                                    <p *ngIf="ckland == false" style="text-align: left;    color: #000;">{{iiii}}.
+                                        รหัสสั่งซื้อ {{item.code_id}} </p>
+                                    <p *ngIf="ckland == true" style="text-align: left;    color: #000;">{{iiii}}. Order
+                                        {{item.code_id}} </p>
+
+
+                                    <div style="    border-color: #f1f2f4;
+                                    color: #52adb4;
+                                    font-size: small;
+                                    font-style: italic;">
+                                        <!-- <ion-icon name="cart"></ion-icon> -->
+                                        <div *ngIf="ckland == false"> ติดตาม </div>
+                                        <div style=" text-transform: capitalize;" *ngIf="ckland == true"> view
+                                        </div>
+                                    </div>
+                                    <button ion-button outline item-end icon-start>
+                                        <ion-icon md="ios-arrow-forward"></ion-icon>
+                                    </button>
+
+                                </ion-item>
+
+                            </ion-list>
+                        </ion-card>
+                        <div *ngIf=" LLLL == 1">
+                            <img src="../../assets/imgs/empty.gif" style="width: 180px; height: 180px;">
+                            <p>ไม่มีรายการสั่งซื้อ</p>
+                        </div>
+                    </div>
+                </ion-list>
+
+            </ion-scroll>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-scroll scrollY="true" style="height: 100%">
+                <ion-list >
+                    <div *ngFor="let itemcancel of resultcancel let iiiii = index;">
+                        <ion-card *ngIf="itemcancel.code_id != null ">
+                            <ion-item style="background-color:#f1f2f4 ;"  (click)="gotoDetail1(itemcancel.code_id,4)"  >
+                                <ion-avatar item-start>
+                                    <img src="../../assets/icon/c.svg">
+                                </ion-avatar>
+
+                                <p *ngIf="ckland == false" style="text-align: left;    color: #000;">{{iiiii}}.
+                                    รหัสสั่งซื้อ {{itemcancel.code_id}} </p>
+                                <p *ngIf="ckland == true" style="text-align: left;    color: #000;">{{iiiii}}. Order
+                                    {{itemcancel.code_id}} </p>
+
+
+                                <div style="    border-color: #f1f2f4;
+                        color: red;
+                        font-size: small;
+                        font-style: italic;">
+                                    <!-- <ion-icon name="cart"></ion-icon> -->
+                                    <div *ngIf="ckland == false"> ยกเลิก </div>
+                                    <div style=" text-transform: capitalize; " *ngIf="ckland == true"> cancel
+                                    </div>
+                                </div>
+                                <button ion-button outline item-end icon-start>
+                                    <ion-icon md="ios-arrow-forward"></ion-icon>
+                                </button>
+
+                            </ion-item>
+                        </ion-card>
+                        <div *ngIf=" LLLLL == 1">
+                            <img src="../../assets/imgs/empty.gif" style="width: 180px; height: 180px;">
+                            <p>ไม่มีรายการสั่งซื้อ</p>
+                        </div>
+                    </div>
+
+                </ion-list>
+
+            </ion-scroll>
+        </ion-slide>
+
+
+
+    </ion-slides>
+
+
+</ion-content>

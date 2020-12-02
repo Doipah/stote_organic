@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{payway}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            {{Payment_channel}}
+        </ion-card-header>
+
+    </ion-card>
+
+
+    <ion-list>
+        <!-- <ion-item text-right details-push>
+
+            <ion-thumbnail item-start sty>
+                <ion-img src="https://img.icons8.com/color/48/000000/empty-box.png" class="imgthu"></ion-img>
+
+
+            </ion-thumbnail>
+            <p style="text-align: left; position: absolute;">เก็บเงินปลายทาง</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item> -->
+        <ion-item text-right (click)="paymentcredit()">
+
+            <ion-thumbnail item-start>
+                <ion-img src="https://img.icons8.com/color/48/000000/mastercard.png" class="imgthu"></ion-img>
+            </ion-thumbnail>
+            <p style="text-align: left;position: absolute;">{{credit}}</p>
+
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item>
+        <!-- <ion-item text-right>
+
+            <ion-thumbnail item-start>
+                <ion-img src="https://img.icons8.com/ultraviolet/40/000000/bank-building.png" class="imgthu"></ion-img>
+
+            </ion-thumbnail>
+
+            <p style="text-align: left; position: absolute; ">ธนาคาร</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item> -->
+        <ion-item text-right (click)="promptpay()">
+
+            <ion-thumbnail item-start>
+                <ion-img src="assets/imgs/1.png" class="imgthu"></ion-img>
+
+            </ion-thumbnail>
+
+            <p style="text-align: left; position: absolute; ">{{Prompt_Pay}}</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item>
+
+        <!-- <button ion-item>
+          <img src="https://img.icons8.com/color/48/000000/mastercard.png" />
+          </button>
+
+        <button ion-item (click)="textpayment()">
+            <ion-icon name="medical" item-start></ion-icon>
+         ธนาคาร
+          </button>
+        <button ion-item (click)="textpayment()">
+            <ion-icon name="medical" item-start></ion-icon>
+          บัตรเครดิต
+          </button>
+        <button ion-item (click)="textpayment()">
+            <ion-icon name="medical" item-start></ion-icon>
+            ทรูมันนี่
+          </button> -->
+
+
+    </ion-list>
+    <img src="" class="imgthu">
+
+
+
+</ion-content>

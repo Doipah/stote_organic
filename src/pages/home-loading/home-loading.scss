@@ -1,0 +1,95 @@
+page-home-loading {
+    .scroll {
+        overflow-y: scroll !important;
+        height: 10vh;
+    }
+    .toolbar-background.toolbar-background-md {
+        background: #8bc34a;
+        color: #8bc34a;
+    }
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: #ffffff;
+    }
+    .back-button-icon-md {
+        margin: 0;
+        padding: 0 6px;
+        text-align: left;
+        text-align: start;
+        font-size: 2.4rem;
+        font-weight: normal;
+        color: white;
+    }
+    ion-card-content {
+        display: inline-grid;
+    }
+    .card-content-md {
+        /* padding: 13px 16px; */
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+    .csstopp {
+        margin-top: 20px;
+    }
+    .item-md ion-thumbnail ion-img,
+    .item-md ion-thumbnail img {
+        width: 90px;
+        height: 80px;
+    }
+    .imgthu {
+        border-radius: 10px;
+    }
+    // .item-md ion-thumbnail[item-start] {
+    //     margin: 8px 0px 8px 0;
+    // }
+    .item-md {
+        padding-left: 10px;
+        padding-right: 0;
+        position: relative;
+        font-size: 1.6rem;
+        font-weight: normal;
+        text-transform: none;
+        color: #000;
+        background-color: #fff;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        margin-top: -20px;
+    }
+    .row1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-top: 5;
+    }
+    button.disable-hover.button.button-ios.button-default.button-default-ios {
+        /* margin-left: 22px; */
+        margin-top: 15px;
+        width: 180px;
+    }
+    .ion-button-class {
+        --border-radius: 10px;
+        --padding-bottom: 10px;
+        --padding-top: 10px;
+        height: 55px;
+        --background: #ddd;
+        --border-radius: 50px;
+        --box-shadow: none;
+    }
+    .card-md {
+        margin: 10px;
+        border-radius: 6px;
+        width: calc(100% - 20px);
+        font-size: 1.4rem;
+        background: #f4f4f4;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.2), 0 1px 5px 0 rgba(255, 255, 255, 0.12);
+    }
+}

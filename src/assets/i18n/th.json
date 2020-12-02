@@ -1,0 +1,77 @@
+{
+	"home": {
+		"heading": "Hello world",
+		"description": "Oh no....Not the hello world tutorial demonstration again!",
+		"text_home": "หน้าหลัก",
+		"text_news": "ข่าวสาร",
+		"text_Product": "สินค้า",
+		"text_Shop": "ร้านค้า",
+		"text_profile": "ข้อมูลส่วนตัว",
+		"text_sale": "สินค้าลดราคา",
+		"text_new"     : " สินค้ามาใหม่",
+		"text_Recom"     : " สินค้าแนะนำ",
+		"text_myProfile": "ข้อมูลส่วนตัวของฉัน",
+		"text_myPurchaese": "รายการสั่งซื้อของฉัน",
+		"text_Setting": "ตั้งค่า",
+		"text_Loguot": "ออกจากระบบ",
+		"text_search"     : "ค้นหา...",
+
+
+		"text_Profile"  : "ข้อมูลส่วนตัว",
+		"text_fullname"     : "ชื่อ",
+		"text_Email"     : "อีเมล์",
+		"text_phone"  : "เบอร์โทร",
+		"btn_ChahngPass"     : "เปลี่ยนรหัสผ่าน",
+		"text_Shipping_address"     : "ที่อยู่สำหรับจัดส่ง",
+		"text_address"     : "บ้านเลขที่",
+		"btn_save"     : "บันทึก",
+
+
+		"text_des"     : "รายละเอียดสินค้า",
+		"text_More"     : "ข้อมูลเพิ่มเติม",
+		"text_qty"     : "จำนวน",
+		"text_netAmount"     : "ยอดสุทธิ",
+		"btn_addtocart"     : "เพิ่มสินค้า",
+
+		"alert_select" : "กรุณาเลือกจำนวนสินค้า ",
+		"alert_add" : "เพิ่มสินค้าในตระกร้า ",
+		"alert_addupdate" : "อัพเดทสินค้าในตระกร้าสินค้า ",
+		"alert_logout" : "คุณต้องการออกจากระบบ หรือไม่? ",
+		"alert_remove" : "คุณต้องการลบสินค้า หรือไม่? ",
+		"alert_Cancel" :"ยกเลิก",
+		"alert_Confirm" :"ตกลง",
+		"alert_OK" :"ตกลง",
+		"alert_Success" : "ยกเลิกการจองเรียบร้อย",
+		"alert_Successregister" : "ลงทะเบียนเรียบร้อย",
+		"alert_shoppinfcart" : "ตะกร้าสินค้า",
+
+		"text_loginfrist" : "เข้าสู่ระบบ ",
+		"text_wellcom" : "ยินดีต้อนรับเข้าสู่ แอพ นอร์ท ออร์แกนิคไทย . ",
+		"text_password" :"รหัสผ่าน",
+		"text_passwordcon" :"ยืนยันรหัสผ่าน ",
+		"text_Forgot" :"ลืมรหัสผ่าน ?",
+		"text_registerp" :"กรุณาสมัคร สมาชิก?",
+		"text_register" : "สมัครสมาชิก",
+		"alert_erroremail":"กรุณาป้อนอีเมล์ และ รหัสผ่าน",
+		"alert_errorpass":"อีเมล์ หรือ รหัสผ่านผิด ",
+		"alert_errorfield":"กรุณาป้อนข้อมูลให้ครบทุกช่อง",
+		"alert_errornewemail":"อีเมล์นี้ถูกใช้แล้ว กรุณาป้อนอีเมล์ใหม่",
+		"alert_errorsamepass":"กรุณาป้อนรหัสผ่านให้ตรงกัน",
+		"text_lanTH":"ภาษาไทย",
+		"text_lanEN":"ภาษาอังกฤษ",
+		"text_Setting":"ตั้งค่า",
+
+		"alert_Not_numproduct": "มีสินค้าไม่เพียงพอ ",
+		"instock":"มีสินค้า",
+		"Weight":"น้ำหนักสินค้า",
+		"Weightg":"กรัม",
+		"Product_type":"ประเภทสินค้า",
+		"Total_Payment":"ยอดรวมทั้งหมด",
+		"select_pro_picture":"กรุณาเลือกรูปภาพ",
+		"successful":"เลือกรูปภาพเรียบร้อย",
+		"select_profile":" เลือกรูป",
+		"text_price":"ราคา"
+
+
+	}
+}

@@ -1,0 +1,87 @@
+<ion-header>
+
+    <ion-navbar hideBackButton>
+
+
+
+
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="">
+    <!--   
+    <ion-list>
+      <ion-card style="border-radius: 20px;" (click)="t1( item.id_category_product)" *ngFor="let item of menu">
+
+        <img class="imgcssg1" src="{{this.baseUrl}}/admin-2-gh-pages/img_banner/{{item.img_category_11}}"
+          class="imgcss" />
+        <div class="card-title" *ngIf="cklan==false">
+          <label class="h1css">{{item.name_category_g}}</label>
+        </div>
+        <div class="card-title" *ngIf="cklan==true">
+          <label class="h1css">{{item.name_category_eg}}</label>
+        </div>
+
+      </ion-card>
+    </ion-list> -->
+
+    <!-- <ion-list >
+        <ion-card (click)="t1( item.id_category_product)" *ngFor="let item of fakeusesr" class="fakeuser">
+            <ion-item text-right>
+                <ion-thumbnail item-start>
+                    <ion-img src="" class="imgthu"></ion-img>
+                </ion-thumbnail>
+                <p style="text-align: left;"></p>
+                <p style="text-align: left;"> </p>
+            </ion-item>
+        </ion-card>
+    </ion-list> -->
+    <!-- <div *ngIf=" menu ==0 "> -->
+        <div  class="d"  *ngIf=" menu == 0 " >
+            <!-- <div class="d"> -->
+                <!-- <ion-list style="text-align: center; max-width: 58%; "> -->
+                    <!-- <ion-item class="fff" style="max-width: 58%; border: 0; height: auto; text-align: center; margin-top: 30%;"> -->
+                        
+                            <img style="       width: 58%;" src="../../assets/imgs/animation_200_kcjz7n9c.gif">
+                            <div *ngIf="cklan == true ">
+                                <p style="  margin-top: -15px;     color: #7b7b7b;   font-size: revert;">Loading . . .</p>
+                            </div>
+                            <div *ngIf="cklan ==  false">
+                                <p style="  margin-top: -15px;   font-size: revert;    color: #7b7b7b;">กำลังโหลด . . .</p>
+                            </div>
+                     
+        
+        
+        
+                    <!-- </ion-item> -->
+                    <!-- <ion-item style="text-align: center;">
+                    <progress type="indeterminate"></progress>
+        
+        
+                </ion-item> -->
+        
+                <!-- </ion-list> -->
+            </div>
+        
+    <!-- </div> -->
+
+    <ion-list *ngIf="menu">
+        <div *ngFor="let item of menu" > 
+        <ion-card (click)="t1( item.id_category_product)"  class="menucard" [ngStyle]="{'background-color':item.backgroup_color}">
+            <ion-item text-right>
+                <ion-thumbnail item-start style="background-color: #f4f4f4; border-radius:6px">
+                    <img class="imgthu" src="{{this.baseUrl}}/admin-2-gh-pages/img_banner/{{item.img_category_11}}" />
+                </ion-thumbnail>
+                <h2 style="text-align: left;" *ngIf="cklan==false">{{item.name_category_g}}</h2>
+                <h2 style="text-align: left;" *ngIf="cklan==true">{{item.name_category_eg}}</h2>
+                <p style="text-align: left; position: absolute; " *ngIf="cklan==false" >ดูข้อมูล </p>
+                <p style="text-align: left; position: absolute; " *ngIf="cklan==true" >view </p>
+                <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+            </ion-item>
+        </ion-card>
+    </div>
+    </ion-list>
+
+
+</ion-content>

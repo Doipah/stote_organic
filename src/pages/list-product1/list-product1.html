@@ -1,0 +1,151 @@
+<ion-header>
+
+    <ion-navbar style="background-color: #fff;">
+
+        <ion-title>{{ti}}</ion-title>
+
+        <ion-buttons end>
+
+            <button ion-button tappable>
+<!-- 
+        <ion-icon name="notifications" color="light" style="font-size: 27px;margin-right: -3px; ">
+
+
+
+        </ion-icon> -->
+
+      </button>
+            <button ion-button tappable (click)="openCart()">
+
+        <ion-icon name="cart" color="light" style="font-size: 27px; margin-right: 12px; ">
+
+            <ion-badge   style="background-color: #ff6a2d; border-radius: 8px;margin-left: -11px;" slot="end">{{tnum + count}}</ion-badge>
+
+        </ion-icon>
+
+      </button>
+        </ion-buttons>
+
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+
+    <div>
+        <ion-searchbar *ngIf="cklan == true " (ionInput)="getItemsEng($event)" placeholder="{{search}}"></ion-searchbar>
+        <ion-searchbar *ngIf="cklan == false " (ionInput)="getItems($event)" placeholder="{{search}}"></ion-searchbar>
+        <div cards>
+
+            <div class="grid-full">
+                <ion-row>
+                    <ion-col *ngFor="let item of prodect2">
+
+                        <ion-card class="cardtest1menu" style=" display: list-item;border: solid 1px #fff;">
+                            <!--scc heart-->
+                            <div class="cssheart" (click)="book(item.dis,item.price_product,item.id_product_re )">
+                                <ion-icon name="cart" style="color: #8bc34a;"></ion-icon>
+                            </div>
+                            <!--end scc heart-->
+                            <!--css new-->
+                            <div class="cssnew" *ngIf="item.id_category==2">
+                                <ion-badge color="dark" style="color: #fff;
+              background-color: #ff6a2d;
+              height: 34px;
+              border-radius: 30px;
+              width: 35px;" slot="end">
+                                    <p style="font-weight: 600;margin-top: 2px;color: #fff; margin-left: -3px; font-style: oblique;">new
+                                    </p>
+                                </ion-badge>
+                            </div>
+                            <!--end css new-->
+                            <!--css dis-->
+                            <div class="cssbadge" *ngIf="item.discount_g > 0">
+                                <ion-badge style="border-radius: 4px;color: #fff; background-color: #ff6a2d; height: 22px; margin-top: -18px; " slot="end">
+                                    -{{item.discount_g}}%</ion-badge>
+                            </div>
+                            <!--end cssdis-->
+                            <!--cssstar-->
+                            <!-- <div class="cssstar" *ngIf="item.discount_g > 0">
+                <ion-icon style="    display: inline-flex;font-size: 2rem;margin-top: -3px; color: #e5e32c;"
+                  name="star">
+                  <p style="margin-top: 1px;
+                margin-left: 5px;
+                color: #9adc28;">3.5</p>
+                </ion-icon>
+              </div>
+              <div class="cssstar1" *ngIf="item.discount_g ==0">
+                <ion-icon style="    display: inline-flex;font-size: 2rem; margin-top: -3px;color: #e5e32c; "
+                  name="star">
+                  <p style="margin-top: 1px;
+                margin-left: 5px;
+                color: #9adc28;">3.5</p>
+                </ion-icon>
+              </div> -->
+                            <!--cssstar-->
+                            <!--img css -->
+                            <ion-thumbnail item-start class="cssthu" (click)=" pushto_dasition(item.id_product_re) ">
+
+                                <img style="height: 100px; border-radius: 10px; " src="{{this.baseUrl}}/admin-2-gh-pages/test_uploads/{{item.img11}}" class="cssimg" />
+
+                            </ion-thumbnail>
+                            <!--end img css-->
+
+                            <ion-card-header>
+                                <!-- ชื่อสินค้า ภาษาไทย ภาษาอังกฤษ ชิดซ้ายมือ  -->
+                                <div *ngIf="cklan == true ">
+                                    <p style="color: #666;font-weight: bold;text-align: start; ">{{item.name_product_en}}</p>
+                                </div>
+                                <div *ngIf="cklan ==  false">
+                                    <p style="color: #666;font-weight: bold;text-align: start; ">{{item.name_product}}</p>
+                                </div>
+                                <!--chech dis-->
+                                <div style="display:contents;" *ngIf="item.discount_g > 0">
+
+                                    <div *ngIf="cklan ==  false ">
+                                        <p style=" text-decoration-line: line-through; color: #666; text-align: left;  font-size: 1.2rem;">
+                                            {{item.price_product}}฿ /{{item.name_cate_th}} </p>
+                                    </div>
+
+                                    <div *ngIf="cklan == true ">
+                                        <p style="  text-decoration-line: line-through; color: #666; text-align: left;   font-size: 1.2rem;">
+                                            {{item.price_product}}฿ /{{item.name_cate_en}} </p>
+                                    </div>
+
+                                    <p style="color: #ff540e;   text-align: left;    font-size: 1.2rem;">
+                                        {{ item.price_product - item.dis }}฿ </p>
+                                </div>
+                                <div style="display:contents;" *ngIf="item.discount_g == 0">
+
+                                    <div *ngIf="cklan ==  false ">
+                                        <p style="  color: #666; text-align: left;  font-size: 1.2rem;">
+                                            {{item.price_product}}฿ /{{item.name_cate_th}} </p>
+                                    </div>
+
+                                    <div *ngIf="cklan == true ">
+                                        <p style="   color: #666; text-align: left;   font-size: 1.2rem;">
+                                            {{item.price_product}}฿ /{{item.name_cate_en}} </p>
+                                    </div>
+
+                                    <p style=" color: #fff;  text-align: left;    font-size: 1.2rem;"> .</p>
+                                </div>
+                                <!---end dis-->
+                            </ion-card-header>
+
+
+
+
+
+
+
+
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+        </div>
+    </div>
+
+</ion-content>

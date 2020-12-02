@@ -1,11 +1,115 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
+
+
+    <ion-navbar>
+        <ion-title>{{srtting}}</ion-title>
+
+    </ion-navbar>
+
+
+
+
+
+</ion-header>
+<ion-content>
+
+
+
+
+
+    <ion-list>
+        <ion-card style=" ">
+            <ion-card-header>
+                <div>
+                    <h2> {{text_myProfile }} </h2>
+                </div>
+
+
+            </ion-card-header>
+        </ion-card>
+        <ion-item text-right (click)="profile()">
+
+            <ion-thumbnail item-start>
+                <ion-img src="https://img.icons8.com/color/48/000000/admin-settings-male.png" class="imgthu"></ion-img>
+            </ion-thumbnail>
+            <p style="text-align: left; position: absolute; ">{{text_myProfile }}</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item>
+
+
+        <ion-card style=" ">
+            <ion-card-header>
+                <div>
+                    <h2  *ngIf=" ckland == true " >Change language </h2>
+                    <h2  *ngIf=" ckland == false " >เปลี่ยนภาษา </h2>
+                </div>
+
+
+            </ion-card-header>
+        </ion-card>
+        <ion-item text-right (click)="setting()">
+            <ion-thumbnail item-start>
+                <ion-img src="assets/imgs/cogwheel.png" class="imgthu"></ion-img>
+            </ion-thumbnail>
+            <p  *ngIf=" ckland == true "  style="text-align: left;position: absolute;">Change language</p>
+            <p  *ngIf=" ckland == false " style="text-align: left;position: absolute;">เลือกภาษา</p>
+           
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item>
+        
+        <ion-card style=" ">
+            <ion-card-header>
+                <div>
+                    <h2  *ngIf=" ckland == true " > About us </h2>
+                    <h2 *ngIf=" ckland == false " > เกี่ยวกับเรา </h2>
+                </div>
+
+
+            </ion-card-header>
+        </ion-card> 
+       <ion-item text-right>
+            <ion-thumbnail item-start>
+                <ion-img src="assets/imgs/line.png" class="imgthu"></ion-img>
+            </ion-thumbnail>
+            <p  *ngIf=" ckland == true "  style="text-align: left; position: absolute; ">Line : join in group organic  </p>
+            <p   *ngIf=" ckland == false " style="text-align: left; position: absolute; ">ไลน์ : เข้าร่วมกลุ่ม organic </p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+        </ion-item> 
+
+    <ion-item text-right>
+            <ion-thumbnail item-start>
+                <ion-img src="assets/imgs/info.png" class="imgthu"></ion-img>
+            </ion-thumbnail>
+            <p *ngIf=" ckland == true "   style="text-align: left; position: absolute; ">policy</p>
+            <p  *ngIf=" ckland == false " style="text-align: left; position: absolute; ">นโยบาย</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+        </ion-item>
+
+
+
+
+
+        <ion-card style=" ">
+            <ion-card-header>
+                <div>
+                    <h2 style="text-align: center; color: red;" (click)="presentConfirm()">{{text_Loguot}}</h2>
+                </div>
+
+
+            </ion-card-header>
+        </ion-card>
+
+
+        <ion-item text-right>
+            <h2  *ngIf=" ckland == true "  style="text-align: center; color: silver; ">Version 0.1</h2>
+            <h2 *ngIf=" ckland == false "   style="text-align: center; color: silver; ">เวอร์ชั่น 0.1</h2>
+
+        </ion-item>
+
+
+    </ion-list>
 
 </ion-content>

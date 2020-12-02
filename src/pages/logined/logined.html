@@ -1,0 +1,90 @@
+<ion-header no-border>
+
+</ion-header>
+
+<ion-content>
+  
+    <ion-content style="background-color: #f4f4f4;">
+       
+        <div style="    background-color: #f4f4f4;
+        height: 200px;
+        margin-top: 0px;
+        
+        border-bottom: 50px;">
+ <img style=" width: 35%;
+ margin-top: 0px;
+ margin: 44px 117px; "
+ src="../assets/imgs/plant.png" class="cssimg" />
+            <!-- <p style="color: #8bc34a;"> 5555 </p> -->
+          
+
+        </div>
+
+        <!-- Themes  register-flat-->
+
+        <ion-grid no-padding>
+            <!-- logo -->
+            <ion-row header align-items-start align-items-stretch>
+                <ion-col col-10 offset-1 col-md-12 offset-md-3>
+
+                </ion-col>
+
+                <!-- Section form>-->
+                <ion-col col-10 offset-1 col-md-6 offset-md-3>
+                    <form padding [formGroup]="form">
+                        <ion-row align-items-start>
+                            <ion-col col-12>
+                                <h1> {{text_loginfrist}}</h1>
+                            </ion-col>
+                        </ion-row>
+                        <!-- Input-field -->
+                        <ion-row>
+                            <ion-col col-12>
+                                <div input-field>
+                                    <!-- Input-field-text -->
+                                    <ion-item style="border-radius: 5px; " no-lines>
+                                        <ion-label></ion-label>
+                                        <ion-input placeholder="{{text_Email}}" type="text" formControlName="u_email" [(ngModel)]="u_email"></ion-input>
+                                        <!--               <ion-label no-margin *ngIf="!isUsernameValid">.errorUser</ion-label> -->
+
+                                    </ion-item>
+
+                                </div>
+                                <div input-field style="margin-top: 8px;">
+
+                                    <!-- Input-field-password -->
+                                    <ion-item style="border-radius: 5px; " no-lines>
+                                        <ion-label></ion-label>
+                                        <ion-input placeholder="{{text_password}}" type="password" formControlName="u_password" [(ngModel)]="u_password"></ion-input>
+                                        <!-- <ion-label no-margin *ngIf="!isPasswordValid">.errorPassword</ion-label> -->
+                                    </ion-item>
+                                </div>
+                                <!-- Login button -->
+                                <ion-col col-12 no-padding>
+
+                                    <button ion-button style=" border-radius: 5px;  background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px;" class="ion-button-class" shape="round" fill="solid" size="large" expand="block" (click)="signIn()">{{text_loginfrist}}</button>
+                                </ion-col>
+                                <!-- Description -->
+                                <div description text-center>
+                                    <ion-row>
+                                        <!-- Reset your password button -->
+                                        <ion-col col-12 no-padding no-margin>
+                                            <p no-margin no-padding style="margin-top: 10px;">{{text_registerp}} <a (click)="signUp()">{{text_register}}</a> </p>
+                                        </ion-col>
+                                        <!-- Signup now button -->
+                                        <ion-col col-12 padding no-margin>
+                                            <p no-margin no-padding><a (click)="resetpass()">{{text_Forgot}} </a> </p>
+                                        </ion-col>
+                                        <ion-col col-12 padding no-margin>
+                                            <p no-margin no-padding><a (click)="TH()">{{text_lanTH}} </a> | <a (click)="EN()">{{text_lanEN}} </a> </p>
+                                        </ion-col>
+                                    </ion-row>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </form>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-content>
+</ion-content>

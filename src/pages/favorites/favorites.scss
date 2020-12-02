@@ -1,0 +1,23 @@
+page-favorites {
+    .item-md ion-avatar ion-img, .item-md ion-avatar img {
+        border-radius: 15%;
+        overflow: hidden;
+        width: 75px;
+        height: 70px;
+    }
+    .toolbar-background-md {
+        border-color: #8BC34A;
+        background: #8bc34a;
+    }
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: #ffffff;
+    }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #ffffff;
+        background-color: transparent;
+    }
+
+}

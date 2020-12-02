@@ -1,0 +1,173 @@
+<ion-header>
+    <ion-navbar>
+
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background-color: #f4f4f4;">
+    <div style="    background-color: #8bc34a;
+     height: 87px;
+    margin-top: -59px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 38px;
+  border-bottom: 35px;">
+
+        <p style="color: #8bc34a;"> 5555 </p>
+        <!-- <img style="    height: 250px;border-radius: 13px;margin-top: 10px; "
+src="https://stepstraining.co/wp-content/uploads/2019/11/trend-food-drink-2020-6-806x423.png" class="cssimg" /> -->
+
+    </div>
+    <ion-grid no-padding>
+        <!-- logo -->
+        <ion-row header align-items-start align-items-stretch>
+            <ion-col col-10 offset-1 col-md-6 offset-md-3>
+                <!-- <img logo src="../assets/imgs/plant.png" /> -->
+            </ion-col>
+
+            <!-- Section form>-->
+            <ion-col col-10 offset-1 col-md-6 offset-md-3>
+                <form [formGroup]="form">
+                    <ion-row align-items-start style=" margin-top: -12%; ">
+                        <ion-col col-12>
+                            <h1 style="    margin-top: 4.7rem; "> {{text_register}}</h1>
+                        </ion-col>
+                    </ion-row>
+                    <!-- Input-field -->
+
+                    <ion-row>
+                        <ion-col col-12>
+
+                            <!-- Input-field-text -->
+                            <div *ngIf="!form.controls.u_name.valid && (form.controls.u_name.dirty)">
+                                <p style="color: red;
+                  position: absolute;">กรุณาป้อน ชื่อเป็นภาษาไทยให้ถูกต้อง </p>
+                            </div>
+                            <ion-item style="border-radius: 5px; " no-lines>
+                                <ion-input placeholder="ชื่อ-นามสกุล" type="text " formControlName="u_name" [(ngModel)]="u_name">
+                                </ion-input>
+                                <!--               <ion-label no-margin *ngIf="!isUsernameValid">.errorUser</ion-label>-->
+                                <ion-label></ion-label>
+                            </ion-item>
+                            <div input-field style="margin-top: 8px;">
+                                <!-- Input-field-password -->
+                                <div *ngIf="!form.controls.u_email.valid && (form.controls.u_email.dirty)">
+                                    <p style="color: red;">กรุณาป้อนอีเมล์ให้ถูกต้อง test@gmail.com </p>
+                                </div>
+                                <ion-item style="border-radius: 5px; " no-lines>
+
+                                    <ion-input placeholder="{{text_Email}}" type="email" formControlName="u_email" [(ngModel)]="u_email">
+                                    </ion-input>
+                                    <!-- <ion-label no-margin *ngIf="!isPasswordValid">.errorPassword</ion-label> -->
+                                </ion-item>
+                            </div>
+                            <div input-field style="margin-top: 8px;">
+                                <div *ngIf="!form.controls.u_password.valid && (form.controls.u_password.dirty)">
+                                    <p style="color: red;">กรุณาป้อนตัวอักษร 8 ตัวขึ้นไป </p>
+                                </div>
+
+                                <ion-item style="border-radius: 5px; " no-lines>
+                                    <ion-input placeholder="{{text_password}}" type="password" formControlName="u_password" minlength="8" [(ngModel)]="u_password"></ion-input>
+                                    <!-- <ion-label no-margin *ngIf="!isPasswordValid">.errorPassword</ion-label> -->
+                                </ion-item>
+                            </div>
+                            <div input-field style="margin-top: 8px;">
+                                <div *ngIf="!form.controls.u_repass.valid && (form.controls.u_repass.dirty)">
+                                    <p style="color: red;">กรุณาป้อนตัวอักษร 8 ตัวขึ้นไป </p>
+                                </div>
+                                <ion-item style="border-radius: 5px; " no-lines>
+                                    <ion-input placeholder="{{text_passwordcon}}" type="password" formControlName="u_repass" minlength="8" [(ngModel)]="u_repass"></ion-input>
+                                    <!-- <ion-label no-margin *ngIf="!isPasswordValid">.errorPassword</ion-label> -->
+                                </ion-item>
+                            </div>
+                            <div input-field style="margin-top: 8px;">
+                                <div *ngIf="!form.controls.u_tel.valid && (form.controls.u_tel.dirty)">
+                                    <p style="color: red;">กรุณาป้อนตัวเลขให้ถูกต้อง </p>
+                                </div>
+
+                                <ion-item style="border-radius: 5px; " no-lines>
+                                    <ion-input placeholder="{{text_phone}}" type="number" maxlength="10" formControlName="u_tel" [(ngModel)]="u_tel">
+                                    </ion-input>
+                                    <!-- <ion-label no-margin *ngIf="!isPasswordValid">.errorPassword</ion-label> -->
+                                </ion-item>
+                            </div>
+
+
+
+                            <!-- <ion-item no-padding>
+                  <ion-input placeholder="{{text_address}}" type="text" formControlName="u_address"
+                    [(ngModel)]="u_address">
+
+                  </ion-input>
+                 
+                </ion-item> -->
+                            <!-- 
+                <ion-item-group>
+                  <ion-item>
+                    <ion-label>จังหวัด</ion-label>
+
+                    <ion-select formControlName="contry" [(ngModel)]="contry" (ionChange)="setDistrictValues(contry)">
+                      <ion-option *ngFor="let items of districts " [value]="items.id">{{items.name_in_thai}}
+                      </ion-option>
+                    </ion-select>
+                  </ion-item> -->
+
+                            <!-- </ion-item-group>
+                <ion-item-group>
+                  <ion-item *ngIf="selectedDistricts">
+                    <ion-label>อำเภอ</ion-label>
+
+                    <ion-select formControlName="ampor" [(ngModel)]="ampor" (ionChange)="setAmporValues(ampor)">
+                      <ion-option *ngFor="let district of selectedDistricts;" [value]="district.id">
+                        {{district.name_in_thai}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-item-group> -->
+                            <!-- 
+                <ion-item-group>
+                  <ion-item *ngIf="selectedAmpor">
+                    <ion-label>ตำบล</ion-label>
+
+                    <ion-select formControlName="tabon" [(ngModel)]="tabon">
+                      <ion-option *ngFor="let dataampor of selectedAmpor;" [value]="dataampor.id">
+                        {{dataampor.name_in_thai}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-item-group> -->
+ 
+
+
+                            <div input-field style="margin-top: 8px;">
+                                <ion-item-group>
+
+                                    <ion-item style="position: inherit; border-radius: 5px; " no-lines>
+                                        <!-- <p>data:4555555555555555555</p> -->
+                                        <button style="color: #f53d3d;" ion-button outline (click)="getImage(1)">{{select_pro_picture}}
+                    </button>
+                                        <p style="color: #b4b4b4;" *ngIf="test_me==false ">{{select_profile}} </p>
+                                        <p style="color: #32db64;" *ngIf="test_me==true ">{{successful}} </p>
+                                        <!-- <img src="{{imageURI[0]}}" width="100" height="50"> -->
+
+
+                                    </ion-item>
+                                </ion-item-group>
+                            </div>
+
+
+
+
+                            <!-- Login button -->
+                            <ion-col col-12 no-padding>
+
+                                <button ion-button  style=" border-radius: 5px;  background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px;" class="ion-button-class" shape="round" fill="solid" size="large" expand="block" (click)="Register()">{{btn_save}}</button>
+                            </ion-col>
+
+
+                        </ion-col>
+                    </ion-row>
+                </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

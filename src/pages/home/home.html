@@ -1,17 +1,505 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+
+    <ion-navbar hideBackButton>
+        <!-- <ion-searchbar class="sc" placeholder="{{text_search}}"
+      style="width: 82%;
+      margin-left: 6%;
+      box-shadow: none;
+      font-size: 1.2rem; "></ion-searchbar> -->
+        <ion-buttons end>
+
+            <button ion-button tappable (click)="presentToast()">
+
+                <ion-icon name="notifications" color="light" style="font-size: 27px;margin-right: -3px; ">
+                </ion-icon>
+
+            </button>
+            <button ion-button tappable (click)="openCart()">
+
+                <ion-icon name="cart" color="light" style="font-size: 27px; margin-right: 12px; ">
+
+                    <ion-badge style="background-color: #ff6a2d; border-radius: 8px;margin-left: -11px;" slot="end">
+                        {{tnum + count}}</ion-badge>
+
+                </ion-icon>
+
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content style="background-color: #fff;">
+    <div  class="d"  *ngIf=" img_bar==0 && prodect1 == 0 " >
+    <!-- <div class="d"> -->
+        <!-- <ion-list style="text-align: center; max-width: 58%; "> -->
+            <!-- <ion-item class="fff" style="max-width: 58%; border: 0; height: auto; text-align: center; margin-top: 30%;"> -->
+                
+                    <img style="       width: 58%;" src="../../assets/imgs/animation_200_kcjz7n9c.gif">
+                    <div *ngIf="cklan == true ">
+                        <p style="  margin-top: -15px;     color: #7b7b7b;   font-size: revert;">Loading . . .</p>
+                    </div>
+                    <div *ngIf="cklan ==  false">
+                        <p style="  margin-top: -15px;   font-size: revert;    color: #7b7b7b;">กำลังโหลด . . .</p>
+                    </div>
+             
+
+
+
+            <!-- </ion-item> -->
+            <!-- <ion-item style="text-align: center;">
+            <progress type="indeterminate"></progress>
+
+
+        </ion-item> -->
+
+        <!-- </ion-list> -->
+    </div>
+
+    <div class="bgcss" *ngIf=" img_bar ">
+
+        <ion-slides class="fuckslide" *ngIf=" img_bar && img_bar.length" pager="true" autoplay="5000" loop="true"
+            speed="300" effect="slide">
+
+            <ion-slide class="slides">
+                <img style="width: 795px;    height: 95%;  "
+                    src="https://adminshop.kwanpat.com/admin-2-gh-pages/img_banner/{{this.img11}}">
+            </ion-slide>
+
+            <ion-slide class="slides">
+                <img style="width: 795px;    height: 95%; "
+                    src="https://adminshop.kwanpat.com/admin-2-gh-pages/img_banner/{{this.img22}}">
+            </ion-slide>
+
+            <ion-slide class="slides">
+                <img style="width: 795px;    height: 95%; "
+                    src="https://adminshop.kwanpat.com/admin-2-gh-pages/img_banner/{{this.img33}}">
+            </ion-slide>
+
+            <ion-slide class="slides">
+                <img style="width: 795px;    height: 95%; "
+                    src="https://adminshop.kwanpat.com/admin-2-gh-pages/img_banner/{{this.img44}}">
+            </ion-slide>
+
+        </ion-slides>
+
+
+        <!-- <div class="bodycllass"> -->
+
+        <!-- Menu สินค้า รายการ ประเภท -->
+        <ion-scroll scrollX="true" style="width: 100%; height: 5px;margin-top: 5px; " *ngIf="menu ">
+
+            <div class="innermenu">
+
+
+                <ion-list style=" display: inline-flex;">
+                    <!-- 
+                    <ion-card *ngFor="let item of menu " (click)="gotilist( item.id_category_product)" class="cardtest1menu" style=" display: table-cell;border: solid 1px #fff; text-align: center; ">
+                        <ion-card-header>
+                            <div *ngIf="cklan == true ">
+                                <p style="color: #666;font-weight: bold;">{{item.name_category_eg}}</p>
+                            </div>
+                            <div *ngIf="cklan == false">
+                                <p style="color: #666;font-weight: bold;">{{item.name_category_g}}</p>
+                            </div>
+                     
+                        </ion-card-header>
+                    </ion-card> -->
+
+                </ion-list>
+            </div>
+        </ion-scroll>
+
+        <!-- Menu สินค้า รายการ ประเภท -->
+
+
+        <!-- -----------------------------------------------------สินค้าลดราคา 1 ---------------------------------------------------------------------------------- -->
+        <!-- <ion-card  class="cardtext" style="position: absolute; margin-top: -70px; "> แสดงloading  -->
+        <!-- <ชื่อสินค้าลดราคา -->
+        <div *ngIf="prodect1">
+            <div *ngIf="cklan == true ">
+                <!-- <p  class="ptext " >Sale products</p> -->
+                <ion-grid class="ion-no-padding">
+                    <ion-row class="ion-align-items-baseline">
+                        <ion-col size="6">
+                            <h4 class="title">
+                                Sale products
+                            </h4>
+                        </ion-col>
+                        <ion-col size="6">
+                            <h4 class="more ion-text-end" (click)="readmore(1)">
+                                View More
+                            </h4>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+            <div *ngIf="cklan ==  false">
+                <ion-grid class="ion-no-padding">
+                    <ion-row class="ion-align-items-baseline">
+                        <ion-col size="6">
+                            <h4 class="title">
+                                สินค้าลดราคา
+                            </h4>
+                        </ion-col>
+                        <ion-col size="6">
+                            <h4 class="more ion-text-end" (click)="readmore(1)">
+                                ดูเพิ่มเติม
+                            </h4>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+        </div>
+
+        <!-- slide 1 แถว -->
+        <ion-scroll scrollX="true" style="width: 100%; height:   270px;  margin-top: -15px; " *ngIf="prodect1">
+
+
+            <div class="innermenu">
+
+                <!-- <ion-spinner name="crescent" *ngIf="prodect1==0"> </ion-spinner> -->
+                <ion-list style=" display: inline-flex;">
+                    <!-- ionic card แสดงข้อมูลสินค้าลดราคาจ้า -->
+                    <ion-card *ngFor="let item of prodect1 " class="cardtest1menu"
+                        style=" display: table-cell;border: solid 1px #fff;">
+                        <!-- class cssแสดงส่วนลด  -->
+
+                        <div
+                            (click)="pushto_dasition(item.id_product_re,item.img11,item.img2,item.img3,item.name_product,item.price_product,item.description,item.dis,item.num_product)">
+                            <div class="cssbadge" *ngIf="item.discount_g > 0">
+                                <ion-badge
+                                    style="border-radius: 4px;color: #fff; background-color: #ff6a2d; height: 22px; margin-top: -18px; "
+                                    slot="end">
+                                    -{{item.discount_g}}%</ion-badge>
+                            </div>
+
+                            <div class="imgpaddingmenu">
+                                <img src="https://adminshop.kwanpat.com/admin-2-gh-pages/test_uploads/{{item.img11}}"
+                                    style=" margin-top: 20px; border-radius: 10px; " class="imgcss" />
+                            </div>
+                        </div>
+                        <div class="cssheart" (click)="book(item.dis,item.price_product,item.id_product_re )">
+                            <ion-icon name="cart" style="color: #8bc34a;"></ion-icon>
+                        </div>
+
+                        <!-- ion-card-header แสดงชื่อต่างๆ -->
+                        <ion-card-header>
+                            <!-- ชื่อสินค้า ภาษาไทย ภาษาอังกฤษ ชิดซ้ายมือ  -->
+                            <div *ngIf="cklan == true ">
+                                <p style="color: #666;font-weight: bold;text-align: start; ">{{item.name_product_en}}
+                                </p>
+                            </div>
+                            <div *ngIf="cklan ==  false">
+                                <p style="color: #666;font-weight: bold;text-align: start; ">{{item.name_product}}</p>
+                            </div>
+
+                            <!-- ราคาส่วนลด    -->
+                            <!-- <div class="textinline"> -->
+                            <div style="display:contents;" *ngIf="item.discount_g > 0">
+
+                                <div *ngIf="cklan ==  false ">
+                                    <p
+                                        style=" text-decoration-line: line-through; color: #666; text-align: left;  font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_th}} </p>
+                                </div>
+
+                                <div *ngIf="cklan == true ">
+                                    <p
+                                        style="  text-decoration-line: line-through; color: #666; text-align: left;   font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_en}} </p>
+                                </div>
+
+                                <p style="color: #ff540e;   text-align: left;    font-size: 1.2rem;">
+                                    {{ item.price_product - item.dis }} ฿ </p>
+                            </div>
+
+
+
+
+                            <!-- </div> -->
+
+
+                        </ion-card-header>
+                    </ion-card>
+
+                </ion-list>
+
+
+            </div>
+        </ion-scroll>
+
+
+        <!-- -----------------------------------------------------สินค้าแนะนำ 2 ---------------------------------------------------------------------------------- -->
+        <!-- <ion-card  class="cardtext" style="position: absolute; margin-top: -70px; "> แสดงloading  -->
+        <!-- <ชื่อสินค้าลดราคา -->
+        <div *ngIf="prodect2" class="ViewMore">
+            <div *ngIf="cklan == true ">
+
+                <ion-grid class="ion-no-padding">
+                    <ion-row class="ion-align-items-baseline">
+                        <ion-col size="6">
+                            <h4 class="title">
+                                New products
+                            </h4>
+                        </ion-col>
+                        <ion-col size="6">
+                            <h4 class="more ion-text-end" (click)="readmore(2)">
+                                View More
+                            </h4>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+            </div>
+            <div *ngIf="cklan ==  false">
+
+                <ion-grid class="ion-no-padding">
+                    <ion-row class="ion-align-items-baseline">
+                        <ion-col size="6">
+                            <h4 class="title">
+                                สินค้ามาใหม่
+                            </h4>
+                        </ion-col>
+                        <ion-col size="6">
+                            <h4 class="more ion-text-end" (click)="readmore(2)">
+                                ดูเพิ่มเติม
+                            </h4>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+
+
+        <!-- slide 1 แถว -->
+        <ion-scroll scrollX="true" style="width: 100%; height:   270px;  margin-top: -15px; " *ngIf="prodect2">
+
+            <div class="innermenu">
+
+                <!-- <ion-spinner name="crescent" *ngIf="prodect1==0"> </ion-spinner> -->
+                <ion-list style=" display: inline-flex;">
+                    <!-- ionic card แสดงข้อมูลสินค้าลดราคาจ้า -->
+                    <ion-card *ngFor="let item of prodect2 " class="cardtest1menu"
+                        style=" display: table-cell;border: solid 1px #fff;">
+                        <!-- class cssแสดงส่วนลด  -->
+                        <div
+                            (click)="pushto_dasition(item.id_product_re,item.img11,item.img2,item.img3,item.name_product,item.price_product,item.description,item.dis,item.num_product)">
+                            <div class="cssbadge" *ngIf="item.discount_g > 0">
+                                <ion-badge
+                                    style="border-radius: 4px;color: #fff; background-color: #ff6a2d; height: 22px; margin-top: -18px; "
+                                    slot="end">
+                                    -{{item.discount_g}}%</ion-badge>
+                            </div>
+                            <!-- icon new -->
+                            <div class="cssnew">
+                                <ion-badge color="dark" style="color: #fff;
+              background-color: #ff6a2d;
+              height: 34px;
+              border-radius: 30px;
+              width: 35px;" slot="end">
+                                    <p
+                                        style="font-weight: 600;margin-top: 2px;color: #fff; margin-left: -3px; font-style: oblique;">
+                                        new
+                                    </p>
+                                </ion-badge>
+                            </div>
+
+                            <!-- class css ของรูปภาพครับ -->
+                            <div class="imgpaddingmenu">
+                                <img src="https://adminshop.kwanpat.com/admin-2-gh-pages/test_uploads/{{item.img11}}"
+                                    style=" margin-top: 20px; border-radius: 10px; " class="imgcss" />
+                            </div>
+                        </div>
+                        <!-- class รูปหัวใจครับ -->
+                        <div class="cssheart" (click)="book(item.dis,item.price_product,item.id_product_re )">
+                            <ion-icon name="cart" style="color: #8bc34a;"></ion-icon>
+                        </div>
+
+
+                        <!-- ion-card-header แสดงชื่อต่างๆ -->
+                        <ion-card-header>
+                            <!-- ชื่อสินค้า ภาษาไทย ภาษาอังกฤษ ชิดซ้ายมือ  -->
+                            <div *ngIf="cklan == true ">
+                                <p style="color: #666;font-weight: bold;text-align: start; ">{{item.name_product_en}}
+                                </p>
+                            </div>
+                            <div *ngIf="cklan ==  false">
+                                <p style="color: #666;font-weight: bold;text-align: start; ">{{item.name_product}}</p>
+                            </div>
+
+                            <!-- ราคาส่วนลด    -->
+                            <!-- <div class="textinline"> -->
+                            <div style="display:contents;" *ngIf="item.discount_g > 0">
+
+                                <div *ngIf="cklan ==  false ">
+                                    <p
+                                        style=" text-decoration-line: line-through; color: #666; text-align: left;  font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_th}} </p>
+                                </div>
+
+                                <div *ngIf="cklan == true ">
+                                    <p
+                                        style="  text-decoration-line: line-through; color: #666; text-align: left;   font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_en}} </p>
+                                </div>
+
+                                <p style="color: #ff540e;   text-align: left;    font-size: 1.2rem;">
+                                    {{ item.price_product - item.dis }} ฿ </p>
+                            </div>
+                            <div *ngIf="item.discount_g == 0">
+                                <div *ngIf="cklan == false">
+                                    <p style="color: #666; text-align: left;    font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_th}}
+                                    </p>
+                                </div>
+                                <div *ngIf="cklan == true">
+                                    <p style="color: #666;   text-align: left;  font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_en}}
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </ion-card-header>
+                    </ion-card>
+
+                </ion-list>
+            </div>
+        </ion-scroll>
+
+
+
+        <!-- -----------------------------------------------------สินค้าแนะนำ 2 ---------------------------------------------------------------------------------- -->
+        <!-- <ion-card  class="cardtext" style="position: absolute; margin-top: -70px; "> แสดงloading  -->
+
+
+
+        <div *ngIf="prodect3" class="ViewMore">
+            <div *ngIf="cklan == true ">
+
+
+                <ion-grid class="ion-no-padding">
+                    <ion-row class="ion-align-items-baseline">
+                        <ion-col size="6">
+                            <h4 class="title">
+                                Recommended
+                            </h4>
+                        </ion-col>
+                        <ion-col size="6">
+                            <h4 class="more ion-text-end" (click)="readmore(3)">
+                                View More
+                            </h4>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+            <div *ngIf="cklan ==  false">
+
+                <ion-grid class="ion-no-padding">
+                    <ion-row class="ion-align-items-baseline">
+                        <ion-col size="6">
+                            <h4 class="title">
+                                สินค้าแนะนำ
+                            </h4>
+                        </ion-col>
+                        <ion-col size="6">
+                            <h4 class="more ion-text-end" (click)="readmore(3)">
+                                ดูเพิ่มเติม
+                            </h4>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+
+        <!-- slide 1 แถว -->
+        <ion-scroll scrollX="true" style="width: 100%; height:   270px;  margin-top: -15px; " *ngIf="prodect3">
+
+            <div class="innermenu">
+
+                <!-- <ion-spinner name="crescent" *ngIf="prodect1==0"> </ion-spinner> -->
+                <ion-list style=" display: inline-flex;">
+                    <!-- ionic card แสดงข้อมูลสินค้าลดราคาจ้า -->
+                    <ion-card *ngFor="let item of prodect3 " class="cardtest1menu"
+                        style=" display: table-cell;border: solid 1px #fff;">
+                        <!-- class cssแสดงส่วนลด  -->
+                        <div
+                            (click)="pushto_dasition(item.id_product_re,item.img11,item.img2,item.img3,item.name_product,item.price_product,item.description,item.dis,item.num_product)">
+                            <div class="cssbadge" *ngIf="item.discount_g > 0">
+                                <ion-badge
+                                    style="border-radius: 4px;color: #fff; background-color: #ff6a2d; height: 22px; margin-top: -18px; "
+                                    slot="end">
+                                    -{{item.discount_g}}%</ion-badge>
+                            </div>
+
+                            <!-- class css ของรูปภาพครับ -->
+                            <div class="imgpaddingmenu">
+                                <img src="https://adminshop.kwanpat.com/admin-2-gh-pages/test_uploads/{{item.img11}}"
+                                    style=" margin-top: 20px; border-radius: 10px; " class="imgcss" />
+                            </div>
+                        </div>
+                        <!-- class รูปหัวใจครับ -->
+                        <div class="cssheart" (click)="book(item.dis,item.price_product,item.id_product_re )">
+                            <ion-icon name="cart" style="color: #8bc34a;"></ion-icon>
+                        </div>
+
+                        <!-- ion-card-header แสดงชื่อต่างๆ -->
+                        <ion-card-header>
+                            <!-- ชื่อสินค้า ภาษาไทย ภาษาอังกฤษ ชิดซ้ายมือ  -->
+                            <div *ngIf="cklan == true ">
+                                <p style="color: #666;font-weight: bold;text-align: start; ">{{item.name_product_en}}
+                                </p>
+                            </div>
+                            <div *ngIf="cklan ==  false">
+                                <p style="color: #666;font-weight: bold;text-align: start; ">{{item.name_product}}</p>
+                            </div>
+
+                            <!-- ราคาส่วนลด    -->
+                            <!-- <div class="textinline"> -->
+                            <div style="display:contents;" *ngIf="item.discount_g > 0">
+
+                                <div *ngIf="cklan ==  false ">
+                                    <p
+                                        style=" text-decoration-line: line-through; color: #666; text-align: left;  font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_th}} </p>
+                                </div>
+
+                                <div *ngIf="cklan == true ">
+                                    <p
+                                        style="  text-decoration-line: line-through; color: #666; text-align: left;   font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_en}} </p>
+                                </div>
+
+                                <p style="color: #ff540e;   text-align: left;    font-size: 1.2rem;">
+                                    {{ item.price_product - item.dis }} ฿ </p>
+                            </div>
+                            <div *ngIf="item.discount_g == 0">
+                                <div *ngIf="cklan == false">
+                                    <p style="color: #666; text-align: left;    font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_th}}
+                                    </p>
+                                </div>
+                                <div *ngIf="cklan == true">
+                                    <p style="color: #666;   text-align: left;  font-size: 1.2rem;">
+                                        {{item.price_product}} ฿ /{{item.name_cate_en}}
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </ion-card-header>
+                    </ion-card>
+
+                </ion-list>
+            </div>
+        </ion-scroll>
+
+
+
+
+
+    </div>
+
+
 </ion-content>

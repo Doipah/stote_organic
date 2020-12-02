@@ -1,5 +1,89 @@
-<ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
+<!-- <ion-header>
+
+  <ion-navbar color="greenon" hideBackButton>
+
+
+
+    <ion-searchbar class="sc" placeholder="{{text_search}}"
+      style="width: 70%; margin-left: 15%; box-shadow: none; font-size: 1.2rem; "></ion-searchbar>
+
+
+    <ion-buttons end>
+
+      <button ion-button tappable (click)="presentAlert()">
+
+        <ion-icon name="notifications" color="light" style="font-size: 27px;margin-right: -3px; ">
+
+
+        </ion-icon>
+
+      </button>
+      <button ion-button tappable (click)="openCart()">
+
+        <ion-icon name="cart" color="light" style="font-size: 27px; margin-right: 12px; ">
+
+
+
+
+        </ion-icon>
+
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header> -->
+<!-- (ionChange)="transition($event)" -->
+
+<!-- <ion-tabs   #myTabs [selectedIndex]="tabIndex" (ionChange)="transition($event)">
+
+  <ion-tab right bottom   [root]="tab1Root" tabTitle="{{text_home}}" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab7Root" tabTitle="{{text_news}}" tabIcon="pricetags"></ion-tab>
+  <ion-tab right bottom  [root]="tab2Root" tabTitle="{{text_Product}}" tabIcon="information-circle"></ion-tab>
+  <ion-fab   center bottom>
+    <button  ion-fab large  ><ion-icon name="cart"></ion-icon></button>
+  </ion-fab>
+  <ion-tab [root]="tab6Root" tabTitle="{{text_Shop}}" tabIcon="pin"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="{{text_profile}}" tabIcon="person"></ion-tab>
+
+</ion-tabs> -->
+
+
+<!-- <ion-tabs color="tabbar">
+  <ion-tab [root]="dashboard" tabIcon="home" tabTitle="Home"></ion-tab>
+  <ion-tab [root]="activity" tabIcon="trending-up" tabTitle="Activity">
+  </ion-tab>
+
+  <ion-fab center bottom>
+    <button ion-fab large (click)="showTransferOptions($event)">Transfer</button>
+  </ion-fab>
+  <ion-tab [root]="transfer" tabIcon="deliberately_invalid" tabTitle="">
+  </ion-tab>
+  <ion-tab [root]="contacts" tabIcon="contacts" tabTitle="Contacts">
+  </ion-tab>
+  <ion-tab [root]="settings" tabIcon="cog" tabTitle="Settings"></ion-tab>
+</ion-tabs> -->
+
+<ion-tabs #myTabs [selectedIndex]="tabIndex"  >
+    <ion-tab  tabIcon="md-home" [root]="tab1Root" tabsHideOnSubPages="true "  tabTitle="{{home}}" ></ion-tab>
+    <!-- <ion-tab   tabIcon="md-home" [root]="tab1Root" tabsHideOnSubPages="true "  tabTitle="หน้าหลัก" ></ion-tab> -->
+    <ion-tab tabIcon="md-reorder" [root]="tab2Root" tabsHideOnSubPages="true"  tabTitle="{{search}}" ></ion-tab>
+    <!-- <ion-tab> -->
+    <!-- <ion-fab center bottom>
+      <button ion-fab large>
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-fab> -->
+    <!-- </ion-tab> -->
+
+    <ion-tab tabIcon="person" [root]="tab4Root" tabsHideOnSubPages="true"  tabTitle="{{profile}}"></ion-tab>
+    <!-- <ion-tab tabIcon="custom-profile" [root]="tab4Root"></ion-tab> -->
 </ion-tabs>
+
+<!-- <ion-tabs>
+  <ion-tab tabIcon="md-home" [root]="tab1Root"></ion-tab>
+  <ion-tab tabIcon="md-search" [root]="tab2Root"></ion-tab>
+  <ion-tab tabIcon="md-cart" [root]="tab3Root" class="custom-tab"></ion-tab>
+  <ion-tab tabIcon="md-pin" [root]="tab6Root"></ion-tab>
+  <ion-tab tabIcon="custom-profile" [root]="tab4Root"></ion-tab>
+</ion-tabs> -->

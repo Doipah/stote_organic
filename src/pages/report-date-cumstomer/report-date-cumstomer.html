@@ -1,0 +1,66 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>แสดงวันที่</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+    <ion-item>
+        <ion-label>แสดงวันที่</ion-label>
+    
+        <ion-select (ionChange)="setDatadate(datadate)" [(ngModel)]="datadate">
+          <ion-option *ngFor="let items of data_date" [value]="items.data_date">
+            <ion-item>{{items.data_date}} </ion-item>
+    
+    
+          </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item-group *ngIf="setDatadate">
+          <ion-item *ngFor="let item of data_date1">
+          
+             
+                
+                <ion-grid (click)="report_customer(item.user_name)" >
+                  
+                    <ion-row >
+                        <ion-col>
+                            ชื่อผู้สั่งซื้อ :
+                        </ion-col>
+                       
+                        <ion-col>
+                            {{item.user_name}}
+                        </ion-col>
+                        
+                      </ion-row>
+                      <ion-row >
+                        <ion-col>
+                            เบอร์โทร :
+                        </ion-col>
+                       
+                        <ion-col>
+                            {{item.u_tel}}
+                        </ion-col>
+                        
+                      </ion-row>
+                      <ion-row >
+                        <ion-col>
+                            ที่อยู่ :
+                        </ion-col>
+                       
+                        <ion-col>
+                            {{item.u_address}}
+                        </ion-col>
+                        
+                      </ion-row>
+                        
+                         
+                    
+                </ion-grid>      
+             
+          </ion-item>
+        </ion-item-group>
+
+</ion-content>

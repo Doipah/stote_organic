@@ -1,0 +1,191 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title *ngIf="cklan == false" style="color: white; ">รายการสั่งซื้อ</ion-title>
+        <ion-title *ngIf="cklan == true" style="color: white; ">Order List</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <!-- <img src="https://www.keycdn.com/img/blog/semantic-ui-banner.png" /> -->
+
+    <ion-list>
+
+
+        <ion-card>
+            <ion-card-header>
+                <h2 *ngIf="cklan == false">รายละเอียดที่อยู่จัดส่ง </h2>
+                <h2 *ngIf="cklan == true">address details</h2>
+            </ion-card-header>
+
+        </ion-card>
+        <div *ngFor="let address of address_shoping ">
+
+            <ion-item>
+                <!-- <ion-thumbnail item-start>
+                    <ion-img src="/assets/imgs/address.png" class="imgthu"></ion-img>
+
+                </ion-thumbnail> -->
+
+                <!-- <p style="text-align: right; color: #f53d3d;" (click)="edit(address.id_address,address.user_email,address.contry,address.ampor,address.tabon,address.address,address.tel,address.code_postman)">แก้ไข</p> -->
+
+                <!-- <ion-grid>
+                    <ion-row>
+
+                        <ion-col>
+                            <p style="text-align: left;"> {{address.address}} </p>
+                        </ion-col>
+                    </ion-row>
+
+                </ion-grid> -->
+                <!-- <ion-list>
+                    <ion-item> -->
+
+                <p style="margin-left: 45px;"> ที่อยู่ {{address.address}}  </p>
+                <p style="margin-left: 45px;"> ตำบล {{address.name_in_thai_sub}} อำเภอ {{address.name_in_thai_dis}} จังหวัด {{address.name_in_thai_pro}} </p>
+                <p style="margin-left: 45px;"> รหัสไปรษณีย์ {{address.zip_code}}  </p>
+<!-- 
+                <ion-icon style="color: red; margin-top: 2px; " name="ios-create" item-end
+                    (click)="edit(address.id_address,address.user_email,address.user_name_buy, address.contry,address.ampor,address.tabon,address.address,address.tel,address.code_postman)">
+                </ion-icon> -->
+                <!-- </ion-item> -->
+            </ion-item>
+            <div class="caret"></div>
+        </div>
+
+
+
+        <ion-card>
+            <ion-card-header>
+                <h2 *ngIf="cklan == true">Order List </h2>
+                <h2 *ngIf="cklan == false">รายการสั่งซื้อ </h2>
+            </ion-card-header>
+
+        </ion-card>
+        <ion-item text-center>
+            <!-- <ion-thumbnail item-start>
+
+                <ion-img src="/assets/imgs/checkout.png" class="imgthu"></ion-img>
+            </ion-thumbnail> -->
+            <!-- <h2 style="text-align: left;">รายการสั้งซื้อ </h2> -->
+
+
+            <ion-grid>
+                <ion-row>
+                    <!-- <ion-col>
+                        <p *ngIf="cklan == false">รายการ</p>
+                        <p *ngIf="cklan == true">Order List</p>
+                    </ion-col> -->
+                    <ion-col>
+                        <p *ngIf="cklan == false">ชื่อสินค้า</p>
+                        <p *ngIf="cklan == true">Product name</p>
+                    </ion-col>
+                    <ion-col>
+                        <p *ngIf="cklan == false">ราคา x จำนวน </p>
+                        <p *ngIf="cklan == true">Price x Number</p>
+                      
+                    </ion-col>
+                    <ion-col>
+                        <p *ngIf="cklan == false">ราคารวม</p>
+                        <p *ngIf="cklan == true"> Price</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+
+            <ion-grid *ngFor="let item_order of order  let i = index; ">
+                <div *ngIf="i != 0">
+                    <ion-row style="margin-top:-20px">
+
+                        <!-- <ion-col class="col col-10">
+
+                            <br>
+                            <p style="text-align: center;"> {{i}} </p>
+                        </ion-col> -->
+
+                        <ion-col>
+                            <div *ngIf="cklan == false">
+                                <br>{{item_order.name_product}}
+                            </div>
+                            <div *ngIf="cklan == true">
+                                <br>{{item_order.name_product_en}}
+                            </div>
+
+                        </ion-col>
+                        <ion-col>
+                            <br>{{item_order.booking_price }} x {{item_order.booking_count}}  
+                         
+
+                        </ion-col>
+                        <ion-col>
+
+                        
+                            <div *ngIf="cklan == false" > 
+                                <br>{{item_order.booking_price * item_order.booking_count }} 
+    
+                               </div>
+                               <div *ngIf="cklan == true" >
+                                <br>{{item_order.booking_price * item_order.booking_count }} 
+    
+                               </div>
+                        </ion-col>
+
+                    </ion-row>
+                </div>
+            </ion-grid>
+            <ion-grid  >
+                <ion-row text-center >
+                    <!-- <ion-col>
+                        <p></p>
+                    </ion-col> -->
+                    <ion-col>
+
+                    </ion-col>
+                    <ion-col>
+                        <p  *ngIf="cklan == false" >ค่าจัดส่ง</p>
+                        <p  *ngIf="cklan == true" >Cost</p>
+                    </ion-col>
+                    <ion-col>
+                        <p>30 ฿</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-grid  >
+                <ion-row text-center >
+                    <!-- <ion-col>
+                        <p></p>
+                    </ion-col> -->
+                    <ion-col>
+
+                    </ion-col>
+                    <ion-col>
+                        <p   *ngIf="cklan == false" style="color: red; ">ราคารวมทั้งหมด</p>
+                        <p   *ngIf="cklan == true" style="color: red; ">Total</p>
+                    </ion-col>
+                    <ion-col>
+                        <p style="color: red; ">{{totalall+30}} ฿</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+
+
+    </ion-list>
+    <!-- <ion-card style=" height: 95px; border-radius: 12px; ">
+
+
+        <ion-card-content style="width: 100%;">
+
+            <button ion-button style=" border-radius: 55px;  background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 5px;" 
+            class="ion-button-class" shape="round" fill="solid" size="large" expand="block" (click)="presentToast()">ยืนยันการสั่งซื้อ</button>
+
+
+        </ion-card-content>
+    </ion-card> -->
+
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <h6  *ngIf="cklan == false"  style="text-align: center; color: #fff " (click)="presentToast(totalall+30)">ยืนยันการสั่งซื้อ </h6>
+        <h6  *ngIf="cklan == true"  style="text-align: center; color: #fff " (click)="presentToast(totalall+30)">Order confirmation </h6>  
+    </ion-toolbar>
+</ion-footer>

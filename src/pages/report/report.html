@@ -1,0 +1,161 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title style="color: white; ">ที่อยู่จัดส่ง</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-card class="cardtest1menu" style=" display: list-item;
+  border: solid 1px #fff;
+  text-align: -webkit-center;
+  height: 250px;
+  border-radius: 21px; "> -->
+
+    <!-- </ion-card> -->
+    <div>
+
+    </div>
+    <!-- <ion-card style=" display: list-item;
+  border: solid 1px #fff;
+  text-align: -webkit-center;
+  height: 50px;
+   ">
+    </ion-card> -->
+    <!-- <img src="https://i.pinimg.com/originals/20/d8/73/20d8733b97d44108a7c4cc40564dff71.gif" /> -->
+    <!-- <img src="https://www.keycdn.com/img/blog/semantic-ui-banner.png" /> -->
+
+
+    <div class="cssprofile">
+
+        <div cards>
+
+            <div class="grid-full" style="margin-top: 15px;">
+                <ion-row>
+
+
+                </ion-row>
+            </div>
+            <form [formGroup]="form">
+                <ion-label *ngIf="cklan == false"> <a class="acolor">*</a> ชื่อ-นามสกุล ผู้รับสินค้า </ion-label>
+                <ion-label *ngIf="cklan == true"> <a class="acolor">*</a> Receiver </ion-label>
+                <ion-item style="border-radius: 5px; margin-top: 8px; background-color: #f4f4f4; " no-lines>
+
+
+                    <ion-input style="font-size: small; " type="text" formControlName="user_name_buy"
+                        placeholder="{{name}}" [(ngModel)]="user_name_buy"></ion-input>
+
+                </ion-item>
+
+
+                <ion-label *ngIf="cklan == false"> <a class="acolor">*</a> เบอร์โทรที่ติดต่อได้ </ion-label>
+                <ion-label *ngIf="cklan == true"> <a class="acolor">*</a> Mobile Phone </ion-label>
+                <ion-item style="border-radius: 5px; margin-top: 8px; background-color: #f4f4f4; " no-lines>
+
+
+                    <ion-input style="font-size: small; " type="number" formControlName="tel" placeholder="เบอร์โทร"
+                        [(ngModel)]="tel"></ion-input>
+
+                </ion-item>
+
+                <ion-label *ngIf=" cklan == true " > <a class=" acolor">*</a> Address details </ion-label>
+                <ion-label *ngIf=" cklan == false "> <a class=" acolor">*</a> ที่อยู่ </ion-label>
+                <!-- <div input-field style=" margin-top: 8px; background-color: #f4f4f4;     border-radius: 5px  "> -->
+
+                    <ion-item style="border-radius: 5px; background-color: #f4f4f4;     border-radius: 5px " no-lines>
+
+                        <ion-input style="font-size: small; " type="text" formControlName="address" [(ngModel)]="address"
+                            placeholder="ระบุที่อยู่ (บ้านเลขที่,ถนน)" ></ion-input>
+
+                    </ion-item>
+                <!-- </div> -->
+
+                <ion-label *ngIf="cklan == false"> <a class="acolor">*</a> เลือกจังหวัด </ion-label>
+                <ion-label *ngIf="cklan == true"> <a class="acolor">*</a> Select province </ion-label>
+                <ion-item style="border-radius: 5px; margin-top: 8px; background-color: #f4f4f4; " no-lines>
+
+                    <ion-label *ngIf="cklan == false" class="textselect"> จังหวัด :</ion-label>
+                    <ion-label *ngIf="cklan == true" class="textselect"> province :</ion-label>
+
+                    <ion-select class="textselect" formControlName="contry" [(ngModel)]="contry"
+                        (ionChange)="setDistrictValues(contry)">
+                        <ion-option class="textselect" *ngFor="let items of districts " [value]="items.id">
+                            {{items.name_in_thai_pro}}
+                        </ion-option>
+                    </ion-select>
+                </ion-item>
+                <div >
+                    <ion-label *ngIf="cklan == false"> <a class="acolor">*</a> เลือกอำเภอ </ion-label>
+                    <ion-label *ngIf="cklan == true"> <a class="acolor">*</a> Select City </ion-label>
+                </div>
+                <ion-item 
+                    style="border-radius: 5px;  margin-top: 10px;  background-color: #f4f4f4; " no-lines>
+                    <ion-label *ngIf="cklan == true" class="textselect">district : </ion-label>
+                    <ion-label *ngIf="cklan == false" class="textselect">อำเภอ : </ion-label>
+                    <ion-select class="textselect" formControlName="ampor" [(ngModel)]="ampor"
+                        (ionChange)="setAmporValues(ampor)">
+                        <ion-option *ngFor="let district of selectedDistricts;" [value]="district.id">
+                            {{district.name_in_thai_dis}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <div >
+                    <ion-label *ngIf=" cklan == true "> <a class="acolor">*</a> Select district </ion-label>
+                    <ion-label *ngIf=" cklan == false "> <a class="acolor">*</a> เลือกตำบล </ion-label>
+
+                </div>
+
+
+
+                <ion-item 
+                    style="border-radius: 5px; margin-top: 10px;  background-color: #f4f4f4;  " no-lines>
+
+                    <ion-label *ngIf=" cklan == true"   class=" textselect"> district :</ion-label>
+                    <ion-label *ngIf=" cklan == false"   class=" textselect">ตำบล :</ion-label>
+                    <ion-select class="textselect" formControlName="tabon" [(ngModel)]="tabon">
+                        <ion-option *ngFor="let dataampor of selectedAmpor;" [value]="dataampor.id">
+                            {{dataampor.name_in_thai_sub}}</ion-option>
+                    </ion-select>
+
+                </ion-item>
+                <!-- <ion-label *ngIf=" cklan == true " > <a class=" acolor">*</a> Postal code {{ZIP}}</ion-label>
+                <ion-label *ngIf=" cklan == false " > <a class=" acolor">*</a> รหัสไปรษณีย์ {{ZIP}}</ion-label> -->
+                <!-- <ion-item style="border-radius: 5px; margin-top: 8px; background-color: #f4f4f4; " no-lines>
+
+
+                    <ion-input disabled style="font-size: small; " type="number" formControlName="code_postman"
+                        placeholder="{{ZIP}}"   [(ngModel)]="code_postman"></ion-input>
+
+                </ion-item> -->
+              
+                <div *ngIf="id == null ">
+                    <div *ngIf=" cklan == true ">
+                        <button ion-button
+                            style=" border-radius: 5px; background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px; "
+                            class="ion-button-class " shape="round " fill="solid " size="large " expand="block "
+                            (click)="add_adddress() ">Next</button>
+                    </div>
+                    <div *ngIf=" cklan == false ">
+                        <button ion-button
+                            style=" border-radius: 5px; background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px; "
+                            class="ion-button-class " shape="round " fill="solid " size="large " expand="block "
+                            (click)="add_adddress() ">ถัดไป</button>
+                    </div>
+                </div>
+                <div *ngIf="id != null ">
+                    <div *ngIf=" cklan == true " > 
+                    <button ion-button
+                        style=" border-radius: 5px; background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px; "
+                        class="ion-button-class " shape="round " fill="solid " size="large " expand="block "
+                        (click)="edit_add_adddress() ">Edit</button>
+                    </div>
+                    <div *ngIf=" cklan == false " > 
+                        <button ion-button
+                            style=" border-radius: 5px; background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px; "
+                            class="ion-button-class " shape="round " fill="solid " size="large " expand="block "
+                            (click)="edit_add_adddress() ">แก้ไข</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,83 @@
+<!--
+  Generated template for the CustomaddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <ion-navbar>
+        <ion-title>จุดนัดรับสินค้า</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <form [formGroup]="form">
+
+            <ion-item-group>
+                <!-- <ion-item>
+            <ion-input type="text" placeholder="รหัสร้าน {{ res_id }}" formControlName="res_id" [disabled]="!edit"></ion-input>
+          </ion-item> -->
+            </ion-item-group>
+            <ion-item-group>
+                <!-- <ion-item-divider color="light">ชื่อร้าน</ion-item-divider> -->
+                <ion-item>
+                    <ion-input type="text" placeholder="ชื่อร้าน..." formControlName="res_name" [(ngModel)]="res_name"></ion-input>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group>
+                <!-- <ion-item-divider color="light">จังหวัด</ion-item-divider> -->
+                <ion-item>
+                    <ion-input type="textarea" placeholder="จังหวัด..." formControlName="res_menu" [(ngModel)]="res_menu"></ion-input>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group>
+                <!-- <ion-item-divider color="light">อำเภอ</ion-item-divider> -->
+                <ion-item>
+                    <ion-input type="textarea" placeholder="อำเภอ..." formControlName="res_address" [(ngModel)]="res_address"></ion-input>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group>
+                <!-- <ion-item-divider color="light">ตำบล</ion-item-divider> -->
+                <ion-item>
+                    <ion-input type="text" placeholder="ตำบล..." formControlName="res_rate" [(ngModel)]="res_rate"></ion-input>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group>
+                <!-- <ion-item-divider color="light">ละติจูด</ion-item-divider> -->
+                <ion-item>
+                    <ion-input type="text" placeholder="ละติจูด" formControlName="la" [(ngModel)]="la"></ion-input>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group>
+                <!-- <ion-item-divider color="light">ลองติจูด</ion-item-divider> -->
+                <ion-item>
+                    <ion-input type="text" placeholder="ลองติจูด" formControlName="longti" [(ngModel)]="longti"></ion-input>
+                </ion-item>
+            </ion-item-group>
+
+
+            <!-- <ion-item-group>
+          <ion-item>
+          <ion-label>เลือกประเภทร้าน</ion-label>
+          <ion-select formControlName="c_id" [(ngModel)]="c_id" >
+          <ion-option *ngFor="let item of items;" [value] = "item.c_id">
+          <ion-item>{{ item.c_id }}&nbsp; :{{ item.c_name }}</ion-item>
+          </ion-option>
+          </ion-select>
+          </ion-item>
+         </ion-item-group> -->
+
+        </form>
+    </ion-card>
+    <div id="map" style="width:100%; height:100%;"></div>
+    <ion-list>
+        <div class="row">
+            <div col-5 float-left>
+                <button (click)="showAlertinsert()" ion-button color="primary" type="submit" size="large" text-center block>บันทึก</button>
+            </div>
+
+        </div>
+    </ion-list>
+</ion-content>

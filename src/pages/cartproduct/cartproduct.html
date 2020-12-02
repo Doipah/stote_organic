@@ -1,0 +1,209 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title  *ngIf="cklan==false"  style="color: red; ">ตะกร้าสินค้า</ion-title>
+        <ion-title *ngIf="cklan==true"  style="color: red; ">Shopping Cart</ion-title>
+
+    </ion-navbar>
+</ion-header>
+<!-- style="     height: 600px; -->
+<ion-content>
+
+
+
+
+
+
+    <div class="csstopp"> </div>
+
+     <!-- <ion-item class="no-border" >
+                    <ion-card>
+                        <p *ngIf="cklan==false" > สั่งซื้อวันที่ {{ date |  date: 'dd/MM/yyyy' }} </p>
+                        <p *ngIf="cklan==true" > DateTime  {{ date|  date: 'dd/MM/yyyy' }} </p>
+    
+                      
+
+                    </ion-card>
+                    
+                   
+                </ion-item> -->
+
+    
+    
+    <div *ngFor="let item of selectedItems  let i = index;   ">
+      
+
+        <div *ngIf="item.name_product != null">
+
+            <ion-list>
+                <!-- <ion-item class="no-border" >
+                    <ion-card>
+                        <p *ngIf="cklan==false" > สั่งซื้อวันที่ {{item.Timedata  |  date: 'dd/MM/yyyy' }} </p>
+                        <p *ngIf="cklan==true" > DateTime  {{item.Timedata |  date: 'dd/MM/yyyy' }} </p>
+    
+                      
+
+                    </ion-card>
+                    
+                   
+                </ion-item> -->
+                <!-- <ion-scroll style="width:100%; height: 23vh;" scrollY="true"> -->
+
+                <ion-card>
+
+                    <ion-card-header>
+
+                        <ion-grid class="ion-no-padding">
+                            <ion-row class="ion-align-items-baseline">
+                                <ion-col size="6">
+                                    <h4 class="title">
+                                        <p style="text-align: left;   color: #000000;  " *ngIf="cklan==false">
+                                          {{i+1}}. {{item.name_product }}</p>
+                                        <p style="text-align: left;   color: #000000;  " *ngIf="cklan==true">
+                                            {{i+1}}. {{item.name_product_en }}</p>
+                                    </h4>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <h4 class="more ion-text-end">
+                                        <ion-icon style="color: red;" name="md-trash" item-end
+                                            (click)="delete(item.id_product_re)"></ion-icon>
+
+                                    </h4>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+
+
+
+                        <!-- <h4 style=" color: #e13838; text-align: end;" (click)="delete(item.id_product_re)">ลบ</h4> -->
+
+
+
+
+                    </ion-card-header>
+
+                </ion-card>
+                <ion-item>
+
+                    <ion-badge *ngIf="item.discount_g>0" style="border-radius: 10px;
+           color: #fff;
+           background-color: #ff6a2d;
+           height: 16px;
+           margin-top: -18px;
+           font-size: x-small;
+           position: absolute;
+           margin-left: -100px;
+           width: 32px;" slot="end">
+                        -{{item.discount_g}}%</ion-badge>
+
+                    <ion-thumbnail item-start>
+
+                        <img src="{{this.baseUrl}}/admin-2-gh-pages/test_uploads/{{item.img11}}" class="imgthu">
+                        <p style="text-align: left;   color: #9adc28;  " *ngIf="cklan==false">
+                            {{item.name_product }}</p>
+                        <p style="text-align: left;   color: #9adc28;  " *ngIf="cklan==true">
+                            {{item.name_product_en }}</p>
+
+                    </ion-thumbnail>
+
+
+                    <p style="text-align: left;   color: #fff;  " *ngIf="cklan==false">
+                        .</p>
+                    <p style="text-align: left;   color: #fff;  " *ngIf="cklan==true">
+                        .</p>
+                    <!-- <p style="text-align: left; color: black; text-align: right;  text-decoration-line: line-through;   ">
+                {{item.price_product}} ฿ / </p> -->
+                    <p style="text-align: left; color: #ff540e ;" *ngIf="cklan==false">{{text_price}}
+                        {{item.booking_price}} ฿
+                    </p>
+                    <p style="text-align: left; color: #ff540e ;" *ngIf="cklan==true">{{text_price}}
+                        {{item.booking_price}} ฿
+                    </p>
+                    <!-- <p style="text-align: left;  ">{{booking_product[i+1].num_count}} x {{item.booking_price}} ฿</p> -->
+                    <p style="text-align: left;  color: #fff ;  ">5555</p>
+
+
+
+                    <button item-end (click)=" decrementQty(i)" ion-button clear
+                        style="font-size: xx-large; color: #8bc34a; ">-</button>
+                    <p item-end>{{booking_product[i+1].num_count}}</p>
+                    <button item-end (click)="addupdate(i)" ion-button clear
+                        style="font-size: xx-large; color: #8bc34a;">+</button>
+                </ion-item>
+                <ion-item style="height: 20px;margin-top: -31px;">
+                    <h4 style="text-align: end; margin-top: 10px;  font-weight: 300; " *ngIf="cklan==true">total
+                        {{total3[i+1]}} ฿</h4>
+                    <h4 style="text-align: end; margin-top: 10px;  font-weight: 300; " *ngIf="cklan==false">รวม
+                        {{total3[i+1]}} ฿</h4>
+
+                </ion-item>
+
+                <!-- </ion-scroll> -->
+
+            </ion-list>
+
+
+        </div>
+    </div>
+    <ion-item *ngIf="total != 0" style="border-top: 1px solid #bdbdbd;">
+        <p *ngIf="cklan==false"> ค่าจัดส่ง </p>
+        <P *ngIf="cklan==true">cost</P>
+
+        <ion-icon item-end>
+            <p> 30 ฿ </p>
+        </ion-icon>
+    </ion-item>
+    <ion-card style="    background: #ffffff;">
+
+        <ion-card-content>
+
+        </ion-card-content>
+    </ion-card>
+
+
+    <!-- <ion-card style=" height: 160px; border-radius: 12px; " *ngIf="total != 0">
+        <ion-item text-right>
+
+            <h2 style="text-align: left;"></h2>
+
+            <div class="row1">
+                <div class="col">
+                    <h5 style="text-align: initial;"> {{Total_Payment}} </h5>
+                </div>
+
+                <div class="col">
+                    <h5 style="text-align: end;"> {{total}} ฿ </h5>
+                </div>
+            </div>
+
+
+        </ion-item>
+
+        <ion-card-content style="width: 100%;">
+
+            <button ion-button style=" border-radius: 55px;  background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px;"
+             class="ion-button-class" shape="round" fill="solid" size="large" expand="block" (click)="payWithPaypal()">ซื้อสินค้า</button>
+
+
+        </ion-card-content>
+    </ion-card> -->
+
+
+
+    <div *ngIf="cklan==false">
+        <p *ngIf="total == 0 " style="color: #666; font-size: initial; text-align: center;">ไม่มีสินค้าในตระกร้า</p>
+    </div>
+    <div *ngIf="cklan==true">
+        <p *ngIf="total == 0 " style="color: #666; font-size: initial; text-align: center; "> not found.</p>
+    </div>
+
+
+</ion-content>
+<ion-footer *ngIf="total != 0">
+    <ion-toolbar *ngIf="cklan==false">
+        <h6 style="text-align: center; color: #fff " (click)="payWithPaypal(total+30)">ซื้อสินค้า {{total+30}}.00 ฿
+        </h6>
+    </ion-toolbar>
+    <ion-toolbar *ngIf="cklan==true">
+        <h6 style="text-align: center; color: #fff " (click)="payWithPaypal(total+30)">Buy Now {{total+30}}.00 ฿ </h6>
+    </ion-toolbar>
+</ion-footer>

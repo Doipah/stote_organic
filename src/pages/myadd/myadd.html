@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>จุดนัดรับสินค้า{{data}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+
+    <!-- <ion-card> -->
+      <!-- <ion-card-header>
+  
+      </ion-card-header> -->
+<!-- <ion-card-content> -->
+  <form [formGroup]="form">
+    <ion-list>
+      
+      
+          <ion-input type="text" placeholder=" {{ id }}" formControlName="id"
+            [disabled]="!edit" [(ngModel)]="id">
+          </ion-input>
+       
+      
+    
+     
+      <ion-item-group>
+          <ion-item>
+          <ion-label>จังหวัด</ion-label>
+        
+            <ion-select  formControlName="contry" [(ngModel)]="contry" (ionChange)="setDistrictValues(contry)" >
+              <ion-option *ngFor="let items of districts " [value] = "items.id">{{items.name_in_thai}} </ion-option>
+           </ion-select>
+           </ion-item>
+       
+       </ion-item-group> 
+       
+    <ion-item-group>
+        <ion-item *ngIf="selectedDistricts">
+          <ion-label>อำเภอ</ion-label>
+        
+            <ion-select formControlName="ampor" [(ngModel)]="ampor" (ionChange)="setAmporValues(ampor)" >
+              <ion-option *ngFor="let district of selectedDistricts;" [value]="district.id">{{district.name_in_thai}}</ion-option>
+           </ion-select>
+        </ion-item>
+       </ion-item-group>
+
+       <ion-item-group>
+        <ion-item *ngIf="selectedAmpor">
+          <ion-label>ตำบล</ion-label> 
+     
+            <ion-select formControlName="tabon" [(ngModel)]="tabon"  >
+              <ion-option *ngFor="let dataampor of selectedAmpor;" [value]="dataampor.id">{{dataampor.name_in_thai}}</ion-option>
+           </ion-select>
+        </ion-item>
+       </ion-item-group>
+ 
+         <!-- <ion-item-group>
+          <ion-item *ngIf="setAmporValues">
+            <ion-label>ตำบล</ion-label>
+          
+              <ion-select formControlName="tabontwo" [(ngModel)]="tabontwo"  >
+                <ion-option *ngFor="let city  of selectedCities;" [value]="city.name">{{city.name_th}}</ion-option>
+             </ion-select>
+          </ion-item>
+         </ion-item-group> -->
+
+         <ion-item-group> 
+
+          <ion-item>
+            <ion-input type="text" placeholder="*ชื่อผู้สั่งซื้อ" formControlName="user_name"
+              [(ngModel)]="user_name" [disabled]="!edit" ></ion-input>
+          </ion-item>
+        </ion-item-group>
+         <ion-item-group> 
+
+          <ion-item>
+            <ion-input type="date" placeholder="*วว/ดด/ปปปป" formControlName="data_date"
+              [(ngModel)]="data_date"></ion-input>
+          </ion-item>
+        </ion-item-group>
+        
+
+
+       <ion-item-group>
+
+        <ion-item>
+          <ion-input type="text" placeholder="*หมู่ที่..." formControlName="moo"
+            [(ngModel)]="moo"></ion-input>
+        </ion-item>
+      </ion-item-group> 
+
+      <ion-item-group>
+
+        <ion-item>
+          <ion-input type="text" placeholder="*บ้านเลขที่..." formControlName="ban"
+            [(ngModel)]="ban"></ion-input>
+        </ion-item>
+      </ion-item-group> 
+      <ion-item-group>
+
+        <ion-item>
+          <ion-input type="text" placeholder="*เบอร์โทร..." formControlName="tel"
+            [(ngModel)]="tel"></ion-input>
+        </ion-item>
+      </ion-item-group> 
+
+      <!-- <ion-item-group>
+          <ion-item>
+            <ion-label>สถานที่จัดส่ง</ion-label>
+          
+              <ion-select formControlName="re_id" [(ngModel)]="re_id" >
+                 <ion-option *ngFor="let item of items;" [value] = "item.res_id">
+                     <ion-item> {{item.res_name}}</ion-item>
+                 </ion-option>
+             </ion-select>
+          </ion-item>
+         </ion-item-group>
+      -->
+      
+    
+    </ion-list>
+    <ion-list>
+      <div class="btn11">
+        <div col-5 float-left>
+          <button (click)="savaEntry(id)" ion-button color="primary" type="submit" size="large" text-center
+            block>บันทึกข้อมูล</button>
+        </div>
+        <div col-5 float-left>
+          <button (click)="deleteschool(id)" ion-button color="danger" [hidden]=(!id) type="button"
+            size="large" text-center block>ลบข้อมูล</button>
+        </div>
+      </div>
+    </ion-list>
+  </form>
+
+
+<!-- </ion-card-content>
+    </ion-card> -->
+</ion-content>

@@ -1,0 +1,135 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{name_credit}} (Test)</ion-title>
+        <!-- <ion-buttons end>
+        <button ion-button (click)="print()">
+          <ion-icon name="print"></ion-icon>
+        </button>
+      </ion-buttons> -->
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="cssprofile">
+        <img src="../../assets/imgs/mastercard.png" style="    position: absolute;width: 99px;margin-left: 199px;margin-top: 18px;">
+        <img src="../../assets/imgs/chip.png" style="    position: absolute;width: 50px;margin-left: 20px;margin-top: 20px;">
+
+        <div>
+          
+           <p  *ngIf="form.controls.credit.valid != false"   style="    color: white;
+            position: absolute;
+            font-size: large;
+            margin-top: 80px;
+            margin-left: 45px;">{{credit}} </p> 
+            
+            <p *ngIf="form.controls.credit.valid == false"    style="    color: white;
+            position: absolute;
+            font-size: large;
+            margin-top: 80px;
+            margin-left: 45px;">0000 0000 0000 0000 </p>
+        </div>
+        <div>
+            <p *ngIf="form.controls.data_date.valid != false" style="    color: white;
+            position: absolute;
+            font-size: initial;
+            margin-top: 131px;
+            margin-left: 22px;">{{data_date}} </p>
+            <p *ngIf="form.controls.data_date.valid == false" style="    color: white;
+            position: absolute;
+            font-size: initial;
+            margin-top: 131px;
+            margin-left: 22px;">MM/YY </p>
+        </div>
+        <div>
+            <p *ngIf="form.controls.data_cvc.valid != false" style="    color: white;
+            position: absolute;
+            font-size: initial;
+            margin-top: 131px;
+            margin-left: 231px;">{{data_cvc}} </p>
+            <p *ngIf="form.controls.data_cvc.valid == false" style="    color: white;
+            position: absolute;
+            font-size: initial;
+            margin-top: 131px;
+            margin-left: 231px;">CVV </p>
+        </div>
+        <div cards>
+            <div style=" width: 300px;   background-color: #488aff;
+            background-image: linear-gradient(180deg,#488aff 10%,rgba(0, 0, 0, 0.41) 100%);
+            background-size: cover;
+          height: 180px;
+          margin-top: 0;
+          border-bottom-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+          border-bottom: 35px;
+          border-top-right-radius: 5px;">
+            </div>
+
+
+
+
+
+            <form [formGroup]="form">
+
+
+                <ion-label>{{email}} </ion-label>
+                <div *ngIf="!form.controls.u_name.valid && (form.controls.u_name.dirty)">
+                    <p style="color: red;">กรุณาป้อนอีเมล์ให้ถูกต้อง test@gmail.com </p>
+                </div>
+                <ion-item style="border-radius: 5px; margin-top: 8px; background-color: #f4f4f4; " no-lines>
+                    <ion-input style="font-size: small; " type="email" placeholder="exam@gmail.com" formControlName="u_name" [(ngModel)]="u_name" name="u_name"></ion-input>
+                </ion-item>
+
+
+                <ion-label>{{name_credit}} </ion-label>
+                <div *ngIf="!form.controls.credit.valid && (form.controls.credit.dirty)">
+                    <p style="color: red;">กรุณาป้อนหมายเลขบัตรให้ถูกต้อง </p>
+                </div>
+                <ion-item style="border-radius: 5px; margin-top: 8px; background-color: #f4f4f4; " no-lines>
+
+
+                    <ion-input cc-number cc-eager-type style=" font-size: small; " type="Number" placeholder="0000 0000 0000 0000 " formControlName="credit" [(ngModel)]="credit" name="credit"></ion-input>
+
+                </ion-item>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                           
+                            <ion-label>{{data_end}} </ion-label>
+                            <ion-item style="border-radius: 5px; margin-top: 8px; background-color: #f4f4f4; " no-lines>
+                                <ion-datetime value="date()" placeholder="MM/YY " displayFormat="MM/YY " monthValues="1,2,3,4,5,6,7,8,9,10,11,12 " yearValues="2020,2021,2022,2023,2024,2025,2026 " formControlName="data_date" [(ngModel)]="data_date" name="data_date"></ion-datetime>
+                                <!-- <ion-input style="font-size: small; " type="date " placeholder="MM/YY " formControlName="data_date " [(ngModel)]="data_date "></ion-input> -->
+                            </ion-item>
+                        </ion-col>
+                       
+                        <ion-col>
+                            <ion-label>CVV    </ion-label>
+                            <div *ngIf="!form.controls.data_cvc.valid && (form.controls.data_cvc.dirty)">
+                                <p style="color: red;">กรุณาป้อนหมายเลขบัตรให้ถูกต้อง </p>
+                            </div>
+                            <ion-item style="border-radius: 5px; margin-top: 8px; background-color: #f4f4f4; " no-lines>
+                                <ion-input style="font-size: small; " type="Number"  placeholder=" " formControlName="data_cvc" [(ngModel)]="data_cvc" name="data_cvc"></ion-input>
+                            </ion-item>
+                        </ion-col>
+
+                    </ion-row>
+                </ion-grid>
+
+                <!-- <div>
+                    <button ion-button style=" border-radius: 5px; background-color: #8bc34a;width: 100%;margin-left: 2px;margin-top: 18px; " class="ion-button-class " shape="round " fill="solid " size="large " expand="block " (click)="edit_add_adddress() ">สั่งซื้อ</button>
+                </div> -->
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <h6 style="text-align: center; color: #fff " (click)="presentToast()">{{Payment}} {{this.total}}.00 ฿ </h6>
+    </ion-toolbar>
+</ion-footer>

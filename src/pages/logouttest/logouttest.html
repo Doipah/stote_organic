@@ -1,0 +1,314 @@
+<ion-header>
+
+    <ion-navbar>
+
+
+        <ion-buttons end>
+            <button ion-button tappable (click)="opensetting()">
+            <ion-icon name="settings" color="light" style="font-size: 27px; margin-right: 12px; ">
+            </ion-icon>
+            </button>
+        </ion-buttons>
+
+
+    </ion-navbar>
+
+</ion-header>
+<ion-content>
+    <!-- <ion-list *ngIf="prifile_user==0"> -->
+        <div  class="d"  *ngIf=" prifile_user == 0 " >
+            <!-- <div class="d"> -->
+                <!-- <ion-list style="text-align: center; max-width: 58%; "> -->
+                    <!-- <ion-item class="fff" style="max-width: 58%; border: 0; height: auto; text-align: center; margin-top: 30%;"> -->
+                        
+                            <img style=" width: 58%;" src="../../assets/imgs/animation_200_kcjz7n9c.gif">
+                            <div *ngIf="cklan == true ">
+                                <p style="  margin-top: -15px;     color: #7b7b7b;   font-size: revert;">Loading . . .</p>
+                            </div>
+                            <div *ngIf="cklan ==  false">
+                                <p style="  margin-top: -15px;   font-size: revert;    color: #7b7b7b;">กำลังโหลด . . .</p>
+                            </div>
+                     
+        
+        
+        
+                    <!-- </ion-item> -->
+                    <!-- <ion-item style="text-align: center;">
+                    <progress type="indeterminate"></progress>
+        
+        
+                </ion-item> -->
+        
+                <!-- </ion-list> -->
+            </div>
+
+
+    <!-- </ion-list> -->
+
+    <div *ngIf="prifile_user" style="      background-color: #8bc34a;
+    height: 128px;
+    margin-top: -55px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom: 55px;">
+
+        <p style="color: #8bc34a;"> 5555 </p>
+
+
+    </div>
+    <div class="cssprofile">
+
+
+
+        <div cards *ngIf="prifile_user">
+
+            <div class="grid-full" style="margin-top: 100px;" *ngFor="let item of prifile_user">
+                <ion-row>
+                    <ion-col>
+
+
+                        <!--scc heart-->
+                        <!--img css -->
+                        <ion-thumbnail item-start class="cssthu" style="margin-top: 25px;">
+
+                            <img style="         border: solid 4px #ffffff;
+                            width: 70px;
+                            height: 70px;
+                            border-radius: 39px;
+                            margin-top: 58px;" src="https://adminshop.kwanpat.com/admin-2-gh-pages/API_shop/productimg/{{item.name_img}}" class="cssimg" />
+
+                        </ion-thumbnail>
+
+                        <!--end img css-->
+
+
+
+                    </ion-col>
+                    <ion-col>
+
+                        <h6 style=" margin-top: 70px; color: #fff;    margin-left: -50px; ">{{item.u_name}} </h6>
+                        <h6 style=" color: #fff;margin-left: -50px;
+                        margin-top: -10px; ">{{item.u_email}}</h6>
+
+
+                    </ion-col>
+                </ion-row>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ใส่profile-->
+
+    <ion-card style="margin-top: 15px; " *ngIf="prifile_user">
+        <ion-card-header>
+            <h2 class="widthEN" *ngIf=" ckland == true "> My order list </h2>
+            <h2  *ngIf=" ckland == false " > รายการสั่งซื้อของฉัน </h2>
+        </ion-card-header>
+    </ion-card>
+
+    <ion-scroll scrollX="true" style="width: 100%; height: 85px;margin-top: -20px;   " *ngIf="prifile_user">
+
+        <div class="innermenu">
+
+            <!-- <ion-spinner name="crescent" *ngIf="prodect1==0"> </ion-spinner> -->
+            <ion-list>
+
+                <ion-card (click)="history()" class="cardtest1menu" style=" display: table-cell;border: solid 1px #fff; text-align: center; background: #fff; ">
+
+
+                    <ion-card-header>
+                        <!-- ชื่อสินค้า ภาษาไทย ภาษาอังกฤษ ชิดซ้ายมือ  -->
+                        <div class="imgcard">
+                            <img src="../../assets/imgs/pay.png" style="width:30px;
+                            height: 30px; background-color: #fff;">
+                            <p> </p>
+                            <p class="widthEN" *ngIf=" ckland == true "> to pay </p>
+                            <h2  *ngIf=" ckland == false " > รอชำระเงิน </h2>
+                        </div>
+
+                    </ion-card-header>
+                </ion-card>
+
+            </ion-list>
+            <ion-list>
+
+                <ion-card (click)="history()" class="cardtest1menu" style=" display: table-cell;border: solid 1px #fff; text-align: center; background: #fff; ">
+
+
+                    <ion-card-header>
+                        <!-- ชื่อสินค้า ภาษาไทย ภาษาอังกฤษ ชิดซ้ายมือ  -->
+                        <div class="imgcard">
+                            <img src="assets/imgs/ok.png" style="width:30px;
+                            height: 30px; background-color: #fff;">
+                            <p class="widthEN" *ngIf=" ckland == true " > paid </p>
+                            <p *ngIf=" ckland == false " >ชำระเงินแล้ว </p>
+                        </div>
+
+                    </ion-card-header>
+                </ion-card>
+
+            </ion-list>
+            <ion-list>
+
+                <ion-card (click)="history()" class="cardtest1menu" style=" display: table-cell;border: solid 1px #fff; text-align: center; background: #fff; ">
+
+
+                    <ion-card-header>
+                        <!-- ชื่อสินค้า ภาษาไทย ภาษาอังกฤษ ชิดซ้ายมือ  -->
+                        <div class="imgcard">
+                            <img src="assets/imgs/boxs.png" style="width:30px;
+                            height: 30px; background-color: #fff;">
+                       
+                            <p class="widthEN" *ngIf=" ckland == true " > to ship </p>
+                            <p *ngIf=" ckland == false " >เตรียมจัดส่ง </p>
+                        </div>
+
+                    </ion-card-header>
+                </ion-card>
+
+            </ion-list>
+
+            <ion-list>
+
+                <ion-card (click)="history()" class="cardtest1menu" style=" display: table-cell;border: solid 1px #fff; text-align: center; background: #fff; ">
+
+
+                    <ion-card-header>
+
+                        <!-- ชื่อสินค้า ภาษาไทย ภาษาอังกฤษ ชิดซ้ายมือ  -->
+                        <div class="imgcard">
+                            <img src="assets/imgs/cancel.png" style="width:30px;
+                            height: 30px; background-color: #fff;">
+                               <p class="widthEN" *ngIf=" ckland == true " >to receive </p>
+                               <p *ngIf=" ckland == false " > ยกเลิกสินค้า </p>
+                        </div>
+
+                    </ion-card-header>
+                </ion-card>
+
+            </ion-list>
+        </div>
+    </ion-scroll>
+
+    <!-- <ion-card style=" " *ngIf="prifile_user!=0">
+        <ion-card-header>
+            <div>
+                <h2> รายการที่ชอบ </h2>
+                <img src="../../assets/imgs/cancel.png" style="width:40px;
+                    height: 50px; background-color: #fff;">
+            </div>
+
+
+        </ion-card-header>
+    </ion-card> -->
+    <div *ngIf="prifile_user">
+        <ion-card>
+            <ion-card-header>
+                <div>
+                    <h2  *ngIf=" ckland == true " > List</h2>
+                    <h2 *ngIf=" ckland == false " > รายการ </h2>
+                </div>
+
+
+            </ion-card-header>
+        </ion-card>
+        
+
+        <ion-item text-right (click)="favorites()">
+            <ion-thumbnail item-start>
+                <img src="assets/imgs/heart.png" class="imgthu">
+            </ion-thumbnail>
+            <p   *ngIf=" ckland == true "  style="text-align: left; position: absolute;">My Favorites</p>
+            <p    *ngIf=" ckland == false " style="text-align: left; position: absolute;">รายการที่ชอบ</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item>
+        <!-- <ion-card>
+            <ion-card-header>
+                <div>
+                    
+                    <h2  *ngIf=" ckland == true " > Order History</h2>
+                    <h2 *ngIf=" ckland == false " > ประวัติการสั่งซื้อ </h2>
+                </div>
+
+
+            </ion-card-header>
+        </ion-card> -->
+        
+
+        <ion-item text-right (click)="his()">
+            <ion-thumbnail item-start>
+                <img src="assets/imgs/checkout.png" class="imgthu">
+            </ion-thumbnail>
+            <p   *ngIf=" ckland == true "  style="text-align: left; position: absolute;"> Order history</p>
+            <p    *ngIf=" ckland == false " style="text-align: left; position: absolute;">ประวัติการสั่งซื้อ</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item>
+
+        <ion-item text-right (click)="myaddress()">
+            <ion-thumbnail item-start>
+                <img src="../../assets/imgs/address.png" class="imgthu">
+            </ion-thumbnail>
+            <p   *ngIf=" ckland == true "  style="text-align: left; position: absolute;"> My Address </p>
+            <p    *ngIf=" ckland == false " style="text-align: left; position: absolute;">ที่อยู่</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item>
+        <!-- <ion-card style=" ">
+            <ion-card-header>
+                <div>
+                    <h2>{{text_Setting}} </h2>
+                </div>
+
+
+            </ion-card-header>
+        </ion-card> -->
+        <!-- <ion-item text-right (click)="setting()">
+            <ion-thumbnail item-start>
+                <img src="assets/imgs/cogwheel.png" class="imgthu">
+            </ion-thumbnail>
+            <p style="text-align: left;position: absolute;">{{text_Setting}}</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+
+        </ion-item> -->
+        <!-- <ion-card style=" ">
+            <ion-card-header>
+                <div>
+                
+                    <h2  *ngIf=" ckland == true " > About us </h2>
+                    <h2 *ngIf=" ckland == false " > เกี่ยวกับเรา </h2>
+                </div>
+
+
+            </ion-card-header>
+        </ion-card> -->
+        <!-- <ion-item text-right>
+            <ion-thumbnail item-start>
+                <img src="assets/imgs/line.png" class="imgthu">
+            </ion-thumbnail>
+            <p *ngIf=" ckland == true "   style="text-align: left; position: absolute; ">Line : join in group organic </p>
+            <p  *ngIf="ckland == false " style="text-align: left; position: absolute; ">ไลน์ : เข้าร่วมกลุ่ม organic </p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+        </ion-item> -->
+
+        <!-- <ion-item text-right>
+            <ion-thumbnail item-start>
+                <img src="assets/imgs/info.png" class="imgthu">
+            </ion-thumbnail>
+           
+            <p   *ngIf=" ckland == true "   style="text-align: left; position: absolute; ">policy</p>
+            <p *ngIf="ckland == false "  style="text-align: left; position: absolute; ">นโยบาย</p>
+            <ion-icon right float-right name="arrow-forward" style="color: #999;"></ion-icon>
+        </ion-item> -->
+
+        <!-- <ion-item text-right>
+            <h2 style="text-align: center; color: red;" (click)="presentConfirm()">{{text_Loguot}}</h2>
+
+        </ion-item> -->
+
+
+    </div>
+
+</ion-content>
